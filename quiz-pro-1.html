@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz Master India — हिंदी प्रश्नोत्तरी</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&family=Baloo+2:wght@600;800;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron: #E8670A;
+  --saffron2: #FF9933;
+  --green: #138808;
+  --navy: #0F2D6B;
+  --bg: #F5F3EF;
+  --white: #FFFFFF;
+  --ink: #111111;
+  --ink2: #333333;
+  --muted: #777777;
+  --border: #E2DDD8;
+  --correct: #0A7A3C;
+  --correct-bg: #E6F4EC;
+  --wrong: #B91C1C;
+  --wrong-bg: #FEE9E9;
+  --card-shadow: 0 2px 16px rgba(0,0,0,0.07);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  min-height: 100vh;
+  color: var(--ink);
+}
+
+/* ── TRICOLOR ── */
+.tricolor {
+  height: 5px;
+  background: linear-gradient(90deg, #FF9933 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #138808 66.66%);
+}
+
+/* ── TOPBAR ── */
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 99;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+}
+.brand {
+  display: flex; align-items: center; gap: 10px;
+}
+.brand-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.brand-name {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem; font-weight: 900; color: var(--ink);
+  line-height: 1;
+}
+.brand-sub { font-size: 0.65rem; color: var(--muted); font-weight: 500; margin-top: 1px; }
+.top-badge {
+  background: linear-gradient(135deg, var(--saffron), var(--saffron2));
+  color: white; font-size: 0.72rem; font-weight: 700;
+  padding: 5px 13px; border-radius: 20px;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* ── WRAPPER ── */
+.wrapper {
+  max-width: 640px; margin: 0 auto;
+  padding: 24px 16px 60px;
+}
+
+/* ══════════════════════════════
+   START SCREEN
+══════════════════════════════ */
+.start-screen {
+  background: var(--white);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+.start-hero {
+  background: linear-gradient(135deg, #0F2D6B 0%, #1a4a9e 100%);
+  padding: 40px 28px 36px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.start-hero::before {
+  content: '🇮🇳';
+  position: absolute; right: -10px; top: -10px;
+  font-size: 8rem; opacity: 0.06;
+}
+.start-hero-icon {
+  width: 72px; height: 72px; border-radius: 20px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; margin: 0 auto 16px;
+}
+.start-hero h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.7rem; font-weight: 900; color: white;
+  margin-bottom: 6px; line-height: 1.2;
+}
+.start-hero p {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6;
+}
+
+.start-body { padding: 28px; }
+
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-bottom: 24px;
+}
+.info-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.info-box-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: var(--white); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+}
+.info-box-text strong {
+  display: block; font-size: 0.88rem; font-weight: 700; color: var(--ink);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+.info-box-text span { font-size: 0.72rem; color: var(--muted); }
+
+.subjects-list {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px;
+}
+.sub-pill {
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 6px 14px; border-radius: 20px;
+  font-size: 0.78rem; font-weight: 600; color: var(--ink2);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.btn-start {
+  width: 100%;
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron2) 100%);
+  color: white; border: none; border-radius: 14px;
+  padding: 16px; font-size: 1rem; font-weight: 700;
+  cursor: pointer; font-family: 'Noto Sans Devanagari', sans-serif;
+  box-shadow: 0 6px 20px rgba(232,103,10,0.35);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-start:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(232,103,10,0.45); }
+.btn-start:active { transform: translateY(0); }
+
+/* ══════════════════════════════
+   QUIZ SCREEN
+══════════════════════════════ */
+.quiz-screen { display: none; }
+
+/* Score Header */
+.score-header {
+  background: var(--white);
+  border-radius: 18px; border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  padding: 16px 20px; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 12px;
+}
+.score-pills { display: flex; gap: 8px; flex: 1; }
+.score-pill {
+  flex: 1; background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 10px 8px; text-align: center;
+}
+.score-pill .sv {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.3rem; font-weight: 900; line-height: 1;
+}
+.score-pill .sl {
+  font-size: 0.65rem; color: var(--muted); font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+.sv.orange { color: var(--saffron); }
+.sv.green2 { color: var(--correct); }
+.sv.red2 { color: var(--wrong); }
+
+/* Progress Card */
+.prog-card {
+  background: var(--white);
+  border-radius: 18px; border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  padding: 16px 20px; margin-bottom: 14px;
+}
+.prog-top {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.prog-subject {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 0.78rem; font-weight: 700; color: var(--saffron);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+.prog-counter {
+  font-size: 0.78rem; font-weight: 600; color: var(--muted);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+.prog-counter strong { color: var(--ink); }
+.prog-track {
+  height: 8px; background: var(--bg);
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.prog-fill {
+  height: 100%; border-radius: 8px;
+  background: linear-gradient(90deg, var(--saffron), var(--saffron2));
+  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+
+/* Question Card */
+.q-card {
+  background: var(--white);
+  border-radius: 20px; border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
+  overflow: hidden; margin-bottom: 14px;
+}
+.q-card-top {
+  background: linear-gradient(135deg, var(--navy) 0%, #1a4a9e 100%);
+  padding: 20px 22px 18px;
+}
+.q-num-row {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 10px;
+}
+.q-num-badge {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.9);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 3px 10px; border-radius: 8px;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  letter-spacing: 0.5px;
+}
+.q-diff {
+  display: flex; gap: 3px;
+}
+.q-diff span {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+}
+.q-diff span.active { background: var(--saffron2); }
+
+.q-text {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 1.12rem; line-height: 1.65; color: white;
+  font-weight: 400;
+}
+
+/* Options */
+.opts-section { padding: 18px 18px 6px; }
+.opts { display: flex; flex-direction: column; gap: 9px; }
+.opt {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 13px;
+  padding: 13px 16px;
+  display: flex; align-items: center; gap: 13px;
+  cursor: pointer; transition: all 0.15s;
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 1rem; color: var(--ink2);
+  text-align: left; width: 100%; line-height: 1.5;
+}
+.opt:hover:not(.disabled) {
+  border-color: var(--saffron);
+  background: #FFF6F0;
+  color: var(--ink);
+}
+.opt.correct { border-color: var(--correct); background: var(--correct-bg); color: var(--correct); }
+.opt.wrong { border-color: var(--wrong); background: var(--wrong-bg); color: var(--wrong); }
+.opt.dimmed { opacity: 0.38; }
+.opt.disabled { pointer-events: none; }
+
+.opt-key {
+  min-width: 32px; height: 32px; border-radius: 9px;
+  background: var(--white); border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Baloo 2', cursive;
+  font-size: 0.82rem; font-weight: 800; flex-shrink: 0;
+  color: var(--muted); transition: all 0.15s;
+}
+.opt:hover:not(.disabled) .opt-key { border-color: var(--saffron); color: var(--saffron); background: white; }
+.opt.correct .opt-key { background: var(--correct); border-color: var(--correct); color: white; }
+.opt.wrong .opt-key { background: var(--wrong); border-color: var(--wrong); color: white; }
+
+/* Feedback */
+.feedback-wrap { padding: 0 18px; }
+.feedback-box {
+  display: none;
+  border-radius: 12px; padding: 12px 15px;
+  font-size: 0.85rem; line-height: 1.6;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  margin-top: 10px;
+}
+.feedback-box.fb-correct { background: var(--correct-bg); color: var(--correct); border: 1px solid rgba(10,122,60,0.18); }
+.feedback-box.fb-wrong { background: var(--wrong-bg); color: var(--wrong); border: 1px solid rgba(185,28,28,0.18); }
+.feedback-box strong { font-weight: 700; }
+
+/* Next Button */
+.next-wrap {
+  padding: 14px 18px 18px;
+  display: flex; justify-content: flex-end;
+}
+.btn-next {
+  background: var(--ink); color: white;
+  border: none; border-radius: 11px;
+  padding: 11px 24px;
+  font-size: 0.88rem; font-weight: 700;
+  cursor: pointer; font-family: 'Noto Sans Devanagari', sans-serif;
+  display: none; transition: opacity 0.15s;
+  display: flex; align-items: center; gap: 6px;
+}
+.btn-next:hover { opacity: 0.8; }
+#btnNext { display: none; }
+
+/* ══════════════════════════════
+   RESULT SCREEN
+══════════════════════════════ */
+.result-screen {
+  display: none;
+  background: var(--white);
+  border-radius: 24px; border: 1px solid var(--border);
+  box-shadow: var(--card-shadow); overflow: hidden;
+}
+.result-hero {
+  background: linear-gradient(135deg, var(--navy), #1a4a9e);
+  padding: 36px 28px; text-align: center;
+}
+.result-trophy { font-size: 3.5rem; margin-bottom: 14px; }
+.result-score-ring {
+  width: 100px; height: 100px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--saffron2));
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 28px rgba(232,103,10,0.4);
+}
+.ring-score {
+  font-family: 'Baloo 2', cursive;
+  font-size: 2rem; font-weight: 900; color: white; line-height: 1;
+}
+.ring-of { font-size: 0.72rem; color: rgba(255,255,255,0.8); }
+.result-title {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.5rem; font-weight: 900; color: white; margin-bottom: 6px;
+}
+.result-msg {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  color: rgba(255,255,255,0.75); font-size: 0.88rem; line-height: 1.6;
+}
+
+.result-body { padding: 24px; }
+.result-stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 10px; margin-bottom: 22px;
+}
+.rstat {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 10px; text-align: center;
+}
+.rstat-val {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.6rem; font-weight: 900; line-height: 1; margin-bottom: 4px;
+}
+.rstat-val.green { color: var(--correct); }
+.rstat-val.red { color: var(--wrong); }
+.rstat-val.orange { color: var(--saffron); }
+.rstat-label {
+  font-size: 0.72rem; color: var(--muted); font-weight: 600;
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.result-grade {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.grade-icon { font-size: 2rem; }
+.grade-text strong {
+  display: block; font-size: 0.9rem; font-weight: 700;
+  font-family: 'Noto Sans Devanagari', sans-serif; color: var(--ink);
+}
+.grade-text span { font-size: 0.78rem; color: var(--muted); font-family: 'Noto Sans Devanagari', sans-serif; }
+
+.result-btns { display: flex; flex-direction: column; gap: 10px; }
+.btn-restart {
+  width: 100%; background: linear-gradient(135deg, var(--saffron), var(--saffron2));
+  color: white; border: none; border-radius: 13px;
+  padding: 14px; font-size: 0.95rem; font-weight: 700;
+  cursor: pointer; font-family: 'Noto Sans Devanagari', sans-serif;
+  box-shadow: 0 4px 16px rgba(232,103,10,0.3); transition: opacity 0.15s;
+}
+.btn-restart:hover { opacity: 0.88; }
+.btn-home {
+  width: 100%; background: transparent; color: var(--ink);
+  border: 1.5px solid var(--border); border-radius: 13px;
+  padding: 13px; font-size: 0.88rem; font-weight: 700;
+  cursor: pointer; font-family: 'Noto Sans Devanagari', sans-serif;
+  transition: all 0.15s;
+}
+.btn-home:hover { border-color: var(--ink); }
+
+/* Footer */
+.page-foot {
+  text-align: center; margin-top: 20px;
+  font-size: 0.72rem; color: var(--muted);
+  font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+/* Responsive */
+@media(max-width:480px){
+  .info-grid { grid-template-columns: 1fr 1fr; }
+  .result-stats { grid-template-columns: repeat(3,1fr); }
+  .q-text { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="tricolor"></div>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-icon">🎯</div>
+    <div>
+      <div class="brand-name">Quiz Master India</div>
+      <div class="brand-sub">हिंदी माध्यम · निःशुल्क</div>
+    </div>
+  </div>
+  <div class="top-badge">🇮🇳 Free</div>
+</div>
+
+<div class="wrapper">
+
+  <!-- ── START SCREEN ── -->
+  <div class="start-screen" id="startScreen">
+    <div class="start-hero">
+      <div class="start-hero-icon">📝</div>
+      <h1>हिंदी प्रश्नोत्तरी</h1>
+      <p>सभी विषयों के 20 सवाल — सामान्य ज्ञान, गणित,<br>विज्ञान और हिंदी व्याकरण।</p>
+    </div>
+    <div class="start-body">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="info-box-icon">📋</div>
+          <div class="info-box-text">
+            <strong>20 सवाल</strong>
+            <span>सभी विषय</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon">✅</div>
+          <div class="info-box-text">
+            <strong>तुरंत रिजल्ट</strong>
+            <span>हर जवाब पर</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon">💡</div>
+          <div class="info-box-text">
+            <strong>Explanation</strong>
+            <span>हर सवाल का</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-icon">🆓</div>
+          <div class="info-box-text">
+            <strong>बिल्कुल Free</strong>
+            <span>कोई फीस नहीं</span>
+          </div>
+        </div>
+      </div>
+      <div class="subjects-list">
+        <span class="sub-pill">📖 सामान्य ज्ञान</span>
+        <span class="sub-pill">🔢 गणित</span>
+        <span class="sub-pill">🔬 विज्ञान</span>
+        <span class="sub-pill">🅰️ हिंदी व्याकरण</span>
+      </div>
+      <button class="btn-start" onclick="startQuiz()">
+        🚀 प्रश्नोत्तरी शुरू करें
+      </button>
+    </div>
+  </div>
+
+  <!-- ── QUIZ SCREEN ── -->
+  <div class="quiz-screen" id="quizScreen">
+
+    <!-- Score Header -->
+    <div class="score-header">
+      <div class="score-pills">
+        <div class="score-pill">
+          <div class="sv orange" id="sTotal">0/20</div>
+          <div class="sl">सवाल</div>
+        </div>
+        <div class="score-pill">
+          <div class="sv green2" id="sCorrect">0</div>
+          <div class="sl">✅ सही</div>
+        </div>
+        <div class="score-pill">
+          <div class="sv red2" id="sWrong">0</div>
+          <div class="sl">❌ गलत</div>
+        </div>
+        <div class="score-pill">
+          <div class="sv orange" id="sScore">0%</div>
+          <div class="sl">स्कोर</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="prog-card">
+      <div class="prog-top">
+        <div class="prog-subject" id="progSubject">📖 सामान्य ज्ञान</div>
+        <div class="prog-counter">सवाल <strong id="progNum">1</strong> / 20</div>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="progFill" style="width:5%"></div>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="q-card">
+      <div class="q-card-top">
+        <div class="q-num-row">
+          <div class="q-num-badge" id="qNumBadge">सवाल 01</div>
+          <div class="q-diff">
+            <span class="active"></span>
+            <span class="active"></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="q-text" id="qText">लोड हो रहा है...</div>
+      </div>
+
+      <div class="opts-section">
+        <div class="opts" id="optsBox"></div>
+      </div>
+
+      <div class="feedback-wrap">
+        <div class="feedback-box" id="feedbackBox"></div>
+      </div>
+
+      <div class="next-wrap">
+        <button class="btn-next" id="btnNext" onclick="nextQ()">
+          अगला सवाल <span>→</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── RESULT SCREEN ── -->
+  <div class="result-screen" id="resultScreen">
+    <div class="result-hero">
+      <div class="result-trophy" id="rTrophy">🏆</div>
+      <div class="result-score-ring">
+        <div class="ring-score" id="rScore">0</div>
+        <div class="ring-of">/ 20</div>
+      </div>
+      <div class="result-title" id="rTitle">शाबाश!</div>
+      <div class="result-msg" id="rMsg">बहुत अच्छा किया!</div>
+    </div>
+    <div class="result-body">
+      <div class="result-stats">
+        <div class="rstat">
+          <div class="rstat-val green" id="rCorrect">0</div>
+          <div class="rstat-label">✅ सही</div>
+        </div>
+        <div class="rstat">
+          <div class="rstat-val red" id="rWrong">0</div>
+          <div class="rstat-label">❌ गलत</div>
+        </div>
+        <div class="rstat">
+          <div class="rstat-val orange" id="rPct">0%</div>
+          <div class="rstat-label">📊 स्कोर</div>
+        </div>
+      </div>
+      <div class="result-grade" id="gradeBox">
+        <div class="grade-icon" id="gradeIcon">🎖️</div>
+        <div class="grade-text">
+          <strong id="gradeTitle">आपकी ग्रेड</strong>
+          <span id="gradeMsg">—</span>
+        </div>
+      </div>
+      <div class="result-btns">
+        <button class="btn-restart" onclick="startQuiz()">🔄 फिर से खेलें</button>
+        <button class="btn-home" onclick="goHome()">🏠 होम पर जाएं</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">Quiz Master India © 2026 · हिंदी माध्यम · निःशुल्क शिक्षा 🇮🇳</div>
+</div>
+
+<script>
+const questions = [
+  // GK — 5
+  { sub:"📖 सामान्य ज्ञान", q:"भारत का सबसे बड़ा राज्य (क्षेत्रफल में) कौन सा है?", opts:["उत्तर प्रदेश","राजस्थान","मध्य प्रदेश","महाराष्ट्र"], ans:1, exp:"राजस्थान क्षेत्रफल की दृष्टि से भारत का सबसे बड़ा राज्य है।" },
+  { sub:"📖 सामान्य ज्ञान", q:"भारत का राष्ट्रीय पक्षी कौन सा है?", opts:["हंस","तोता","मोर","बाज"], ans:2, exp:"मोर भारत का राष्ट्रीय पक्षी है — इसे 1963 में घोषित किया गया।" },
+  { sub:"📖 सामान्य ज्ञान", q:"ताजमहल किस शहर में स्थित है?", opts:["दिल्ली","जयपुर","आगरा","लखनऊ"], ans:2, exp:"ताजमहल उत्तर प्रदेश के आगरा शहर में यमुना नदी के किनारे स्थित है।" },
+  { sub:"📖 सामान्य ज्ञान", q:"'सत्यमेव जयते' किस उपनिषद से लिया गया है?", opts:["ऋग्वेद","मुण्डक उपनिषद","भगवद गीता","अथर्ववेद"], ans:1, exp:"'सत्यमेव जयते' मुण्डक उपनिषद से लिया गया भारत का राष्ट्रीय आदर्श वाक्य है।" },
+  { sub:"📖 सामान्य ज्ञान", q:"भारत का राष्ट्रीय खेल कौन सा है?", opts:["क्रिकेट","हॉकी","कबड्डी","बैडमिंटन"], ans:1, exp:"हॉकी भारत का राष्ट्रीय खेल है।" },
+  // MATHS — 5
+  { sub:"🔢 गणित", q:"यदि एक वर्ग की भुजा 5 सेमी है, तो उसका क्षेत्रफल क्या होगा?", opts:["10 वर्ग सेमी","20 वर्ग सेमी","25 वर्ग सेमी","15 वर्ग सेमी"], ans:2, exp:"वर्ग का क्षेत्रफल = भुजा × भुजा = 5 × 5 = 25 वर्ग सेमी।" },
+  { sub:"🔢 गणित", q:"3 + 3 × 3 − 3 ÷ 3 = ?", opts:["9","11","3","12"], ans:1, exp:"BODMAS के अनुसार: पहले 3×3=9, फिर 3÷3=1, फिर 3+9−1=11" },
+  { sub:"🔢 गणित", q:"√144 का मान क्या है?", opts:["11","12","13","14"], ans:1, exp:"√144 = 12, क्योंकि 12 × 12 = 144" },
+  { sub:"🔢 गणित", q:"12 का 25% क्या होगा?", opts:["2","3","4","6"], ans:1, exp:"12 का 25% = (12 × 25) ÷ 100 = 3" },
+  { sub:"🔢 गणित", q:"एक त्रिभुज के तीनों कोणों का योग कितना होता है?", opts:["90°","180°","270°","360°"], ans:1, exp:"किसी भी त्रिभुज के तीनों कोणों का योग सदा 180° होता है।" },
+  // SCIENCE — 5
+  { sub:"🔬 विज्ञान", q:"प्रकाश की गति लगभग कितनी होती है?", opts:["3 लाख किमी/से","3 हजार किमी/से","3 करोड़ किमी/से","30 किमी/से"], ans:0, exp:"प्रकाश की गति लगभग 3 लाख (3×10⁵) किलोमीटर प्रति सेकंड होती है।" },
+  { sub:"🔬 विज्ञान", q:"मानव शरीर में हड्डियों की कुल संख्या कितनी है?", opts:["200","206","210","215"], ans:1, exp:"एक वयस्क मानव शरीर में कुल 206 हड्डियाँ होती हैं।" },
+  { sub:"🔬 विज्ञान", q:"पानी का रासायनिक सूत्र क्या है?", opts:["CO₂","NaCl","H₂O","O₂"], ans:2, exp:"पानी का रासायनिक सूत्र H₂O है — दो हाइड्रोजन और एक ऑक्सीजन।" },
+  { sub:"🔬 विज्ञान", q:"सूर्य के सबसे निकट का ग्रह कौन सा है?", opts:["शुक्र","पृथ्वी","बुध","मंगल"], ans:2, exp:"बुध (Mercury) सूर्य के सबसे निकट का ग्रह है।" },
+  { sub:"🔬 विज्ञान", q:"प्रकाश संश्लेषण में पौधे किस गैस को ग्रहण करते हैं?", opts:["ऑक्सीजन","नाइट्रोजन","कार्बन डाइऑक्साइड","हाइड्रोजन"], ans:2, exp:"प्रकाश संश्लेषण में पौधे CO₂ (कार्बन डाइऑक्साइड) ग्रहण करके ऑक्सीजन छोड़ते हैं।" },
+  // HINDI — 5
+  { sub:"🅰️ हिंदी व्याकरण", q:"'राजा' शब्द का बहुवचन क्या होगा?", opts:["राजाएं","राजाओं","राजे","राजाऐं"], ans:2, exp:"'राजा' का सही बहुवचन 'राजे' होता है।" },
+  { sub:"🅰️ हिंदी व्याकरण", q:"'सूर्योदय' में कौन सी संधि है?", opts:["गुण संधि","वृद्धि संधि","यण संधि","दीर्घ संधि"], ans:0, exp:"सूर्य + उदय — यहाँ 'अ + उ = ओ' होता है, यह गुण संधि है।" },
+  { sub:"🅰️ हिंदी व्याकरण", q:"'आकाश' का पर्यायवाची शब्द कौन सा है?", opts:["धरती","नभ","सागर","पवन"], ans:1, exp:"'नभ', 'गगन', 'अम्बर' — ये सब 'आकाश' के पर्यायवाची हैं।" },
+  { sub:"🅰️ हिंदी व्याकरण", q:"'मोहन पुस्तक पढ़ता है' — इस वाक्य में क्रिया कौन सी है?", opts:["मोहन","पुस्तक","पढ़ता","है"], ans:2, exp:"'पढ़ता' क्रिया है क्योंकि यह कार्य को दर्शाता है।" },
+  { sub:"🅰️ हिंदी व्याकरण", q:"'हाथी' शब्द का स्त्रीलिंग क्या है?", opts:["हाथिनी","हथिनी","हथिया","हाथिया"], ans:1, exp:"'हाथी' का स्त्रीलिंग 'हथिनी' होता है।" }
+];
+
+let cur=0, score=0, wrong=0, answered=false;
+const keys=['A','B','C','D'];
+
+function startQuiz(){
+  cur=0; score=0; wrong=0; answered=false;
+  document.getElementById('startScreen').style.display='none';
+  document.getElementById('resultScreen').style.display='none';
+  document.getElementById('quizScreen').style.display='block';
+  updateScoreHeader();
+  render();
+}
+
+function goHome(){
+  document.getElementById('quizScreen').style.display='none';
+  document.getElementById('resultScreen').style.display='none';
+  document.getElementById('startScreen').style.display='block';
+}
+
+function updateScoreHeader(){
+  const pct = cur>0 ? Math.round((score/cur)*100) : 0;
+  document.getElementById('sTotal').textContent = (cur)+'/20';
+  document.getElementById('sCorrect').textContent = score;
+  document.getElementById('sWrong').textContent = wrong;
+  document.getElementById('sScore').textContent = pct+'%';
+}
+
+function render(){
+  const q = questions[cur];
+  const pct = Math.round(((cur+1)/questions.length)*100);
+
+  document.getElementById('progSubject').textContent = q.sub;
+  document.getElementById('progNum').textContent = cur+1;
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('qNumBadge').textContent = 'सवाल '+(cur<9?'0':'')+(cur+1);
+  document.getElementById('qText').textContent = q.q;
+  document.getElementById('feedbackBox').style.display = 'none';
+  document.getElementById('feedbackBox').className = 'feedback-box';
+  document.getElementById('btnNext').style.display = 'none';
+  answered = false;
+
+  const box = document.getElementById('optsBox');
+  box.innerHTML = '';
+  q.opts.forEach((o,i)=>{
+    const b = document.createElement('button');
+    b.className = 'opt';
+    b.innerHTML = `<span class="opt-key">${keys[i]}</span><span>${o}</span>`;
+    b.onclick = ()=> pick(i, b);
+    box.appendChild(b);
+  });
+}
+
+function pick(i, btn){
+  if(answered) return;
+  answered = true;
+  const q = questions[cur];
+  const allBtns = document.querySelectorAll('.opt');
+
+  allBtns.forEach((b,idx)=>{
+    b.classList.add('disabled');
+    if(idx === q.ans) b.classList.add('correct');
+    else if(idx !== i) b.classList.add('dimmed');
+  });
+
+  const fb = document.getElementById('feedbackBox');
+  if(i === q.ans){
+    score++;
+    btn.classList.add('correct');
+    fb.className = 'feedback-box fb-correct';
+    fb.innerHTML = `<strong>✅ सही जवाब!</strong> ${q.exp}`;
+  } else {
+    wrong++;
+    btn.classList.add('wrong');
+    fb.className = 'feedback-box fb-wrong';
+    fb.innerHTML = `<strong>❌ गलत!</strong> सही जवाब: <strong>${q.opts[q.ans]}</strong>। ${q.exp}`;
+  }
+  fb.style.display = 'block';
+  updateScoreHeader();
+
+  if(cur < questions.length-1){
+    document.getElementById('btnNext').style.display = 'flex';
+  } else {
+    setTimeout(showResult, 1600);
+  }
+}
+
+function nextQ(){ cur++; render(); }
+
+function showResult(){
+  document.getElementById('quizScreen').style.display = 'none';
+  const rs = document.getElementById('resultScreen');
+  rs.style.display = 'block';
+
+  const pct = Math.round((score/questions.length)*100);
+  document.getElementById('rScore').textContent = score;
+  document.getElementById('rCorrect').textContent = score;
+  document.getElementById('rWrong').textContent = wrong;
+  document.getElementById('rPct').textContent = pct+'%';
+
+  const grades = [
+    { min:0,  max:24,  t:'😔', title:'हिम्मत मत हारो!', msg:'मेहनत करते रहो — अगली बार ज़रूर बेहतर होगे।', gi:'📚', gt:'Grade: F', gm:'और अध्ययन की ज़रूरत है।' },
+    { min:25, max:49,  t:'🙂', title:'ठीक-ठाक!', msg:'कुछ सुधार की ज़रूरत है। रोज़ पढ़ाई करो।', gi:'✏️', gt:'Grade: D', gm:'थोड़ा और प्रयास करें।' },
+    { min:50, max:64,  t:'😊', title:'अच्छा किया!', msg:'आधे से ज़्यादा सही — आगे बढ़ते रहो!', gi:'⭐', gt:'Grade: C', gm:'औसत से ऊपर प्रदर्शन।' },
+    { min:65, max:79,  t:'😃', title:'बहुत अच्छा!', msg:'शानदार प्रदर्शन — आप होनहार हो!', gi:'🌟', gt:'Grade: B', gm:'बहुत अच्छा प्रदर्शन!' },
+    { min:80, max:99,  t:'🎉', title:'उत्कृष्ट!', msg:'वाह! बहुत शानदार — आप टॉपर हो!', gi:'🏅', gt:'Grade: A', gm:'उत्कृष्ट प्रदर्शन!' },
+    { min:100,max:100, t:'🏆', title:'परफेक्ट स्कोर!', msg:'एकदम ज़बरदस्त! आप Quiz Master हो!', gi:'👑', gt:'Grade: A+', gm:'सर्वश्रेष्ठ प्रदर्शन!' }
+  ];
+  const g = grades.find(x=> pct>=x.min && pct<=x.max) || grades[0];
+  document.getElementById('rTrophy').textContent = g.t;
+  document.getElementById('rTitle').textContent = g.title;
+  document.getElementById('rMsg').textContent = g.msg;
+  document.getElementById('gradeIcon').textContent = g.gi;
+  document.getElementById('gradeTitle').textContent = g.gt;
+  document.getElementById('gradeMsg').textContent = g.gm;
+}
+</script>
+</body>
+</html>
