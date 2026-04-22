@@ -16,28 +16,26 @@
 
         /* Hero Section */
         .hero { background: linear-gradient(rgba(26,42,108,0.8), rgba(26,42,108,0.8)), url('https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1000&q=80'); 
-                height: 60vh; background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-        .btn-main { background: var(--secondary); color: var(--primary); padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; margin-top: 20px; transition: 0.3s; }
-        .btn-main:hover { transform: scale(1.1); background: white; }
+                height: 50vh; background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .btn-main { background: var(--secondary); color: var(--primary); padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 20px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .btn-main:hover { transform: scale(1.05); background: white; }
 
-        /* Sections */
-        section { padding: 60px 20px; max-width: 1000px; margin: auto; }
-        h2 { text-align: center; color: var(--primary); font-size: 2rem; margin-bottom: 40px; }
+        /* Video Section */
+        section { padding: 50px 20px; max-width: 1000px; margin: auto; }
+        .channel-card { background: white; padding: 30px; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); border-top: 5px solid #ff0000; }
+        .yt-btn { background: #ff0000; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 15px; font-weight: bold; }
 
-        /* Video Gallery */
-        .video-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .video-card iframe { width: 100%; height: 200px; border: none; }
-        .video-info { padding: 15px; font-weight: bold; }
-
-        /* Quiz UI (Previous Styles) */
+        /* Quiz UI */
         .quiz-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); max-width: 600px; margin: auto; }
         .timer-bar { height: 6px; background: #eee; width: 100%; margin-bottom: 20px; border-radius: 10px; overflow: hidden; }
         #timer-fill { height: 100%; background: linear-gradient(to right, #f2a900, #ff4e50); width: 100%; transition: width 1s linear; }
-        .option-btn { display: block; width: 100%; padding: 14px; margin: 10px 0; border: 2px solid #ddd; border-radius: 10px; background: white; cursor: pointer; text-align: left; }
-        #certificate { display: none; padding: 30px; border: 12px double #1a2a6c; background: #fff; text-align: center; }
+        .option-btn { display: block; width: 100%; padding: 14px; margin: 10px 0; border: 2px solid #ddd; border-radius: 10px; background: white; cursor: pointer; text-align: left; font-weight: 500; }
         
+        /* Certificate */
+        #certificate { display: none; padding: 40px; border: 15px double #1a2a6c; background: #fff; text-align: center; margin-top: 20px; }
+        .bhavishya-msg { color: #d35400; font-weight: bold; margin-top: 20px; }
+
         footer { background: var(--primary); color: white; text-align: center; padding: 20px; margin-top: 50px; }
     </style>
 </head>
@@ -46,92 +44,88 @@
 <nav>
     <div class="logo">Quiz Master India</div>
     <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#quiz-section">Quiz</a>
-        <a href="#video-section">Videos</a>
+        <a href="#quiz-section">क्विज</a>
+        <a href="#video-section">वीडियो</a>
     </div>
 </nav>
 
 <header class="hero">
     <h1>भारत को जानें, खुद को परखें</h1>
-    <p>Quiz Master India के साथ अपनी जानकारी बढ़ाएं और सर्टिफिकेट जीतें।</p>
-    <a href="#quiz-section" class="btn-main">क्विज शुरू करें</a>
+    <p>Quiz Master India - शिक्षा और ज्ञान का डिजिटल सफर</p>
+    <a href="#quiz-section" class="btn-main">आज का क्विज खेलें ➔</a>
 </header>
 
 <section id="video-section">
-    <h2>लेटेस्ट वीडियो ट्यूटोरियल</h2>
-    <div class="video-container">
-        <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-            <div class="video-info">भारत का गौरवशाली इतिहास</div>
-        </div>
-        <div class="video-card">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-            <div class="video-info">प्रमुख महापुरुषों की जीवनी</div>
-        </div>
+    <div class="channel-card">
+        <h2 style="color: #333;">हमारे YouTube चैनल से जुड़ें</h2>
+        <p>बेहतरीन एजुकेशनल वीडियो और ज्ञानवर्धक जानकारी के लिए सब्सक्राइब करें।</p>
+        <a href="https://youtube.com/@quizmasterindia11?si=qex7VMHllQY1EW1J" target="_blank" class="yt-btn">YouTube पर वीडियो देखें 🎥</a>
     </div>
 </section>
 
 <section id="quiz-section">
-    <h2>आज का स्पेशल क्विज</h2>
+    <h2 style="text-align: center; color: var(--primary);">डेली क्विज चैलेंज</h2>
     <div class="quiz-card">
         <div id="quiz-ui">
             <div class="timer-bar"><div id="timer-fill"></div></div>
-            <div id="status" style="display:flex; justify-content:space-between; color:#777; margin-bottom:10px;">
+            <div id="status" style="display:flex; justify-content:space-between; color:#777; margin-bottom:10px; font-weight: bold;">
                 <span id="question-count"></span>
-                <span id="live-score">Score: 0</span>
+                <span id="live-score">स्कोर: 0</span>
             </div>
-            <div id="q-text" style="font-size:1.2rem; font-weight:bold; margin-bottom:20px;">Loading...</div>
+            <div id="q-text" style="font-size:1.3rem; font-weight:bold; margin-bottom:20px; color: var(--primary);">Loading...</div>
             <div id="options-box"></div>
-            <div id="exp-box" style="display:none; padding:15px; background:#f0f8ff; border-radius:10px; margin-top:15px;"></div>
-            <button id="next-btn" style="display:none; width:100%; padding:15px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer; margin-top:20px;">अगला प्रश्न ➔</button>
+            <div id="exp-box" style="display:none; padding:15px; background:#eef7ff; border-left: 5px solid #1a2a6c; border-radius:5px; margin-top:15px; font-size: 0.95rem;"></div>
+            <button id="next-btn" style="display:none; width:100%; padding:15px; background:var(--primary); color:white; border:none; border-radius:10px; cursor:pointer; margin-top:20px; font-weight: bold;">अगला प्रश्न ➔</button>
         </div>
 
         <div id="result-ui" style="display:none; text-align:center;">
-            <h3>क्विज पूरा हुआ!</h3>
-            <p id="final-stats"></p>
-            <button id="show-cert-btn" style="padding:15px; background:var(--secondary); border:none; border-radius:10px; cursor:pointer;">सर्टिफिकेट देखें</button>
-            
-            <div id="certificate" style="margin-top:20px;">
-                <h2 style="color:#1a2a6c;">QUIZ MASTER INDIA</h2>
-                <p>प्रमाणित किया जाता है कि आपने क्विज सफलतापूर्वक पूरा किया।</p>
-                <h4 id="cert-grade">GRADE: A+</h4>
-                <p style="color:#d35400; font-weight:bold;">✨ हम आपके उज्जवल भविष्य की मंगल कामना करते हैं! ✨</p>
-                <small id="cert-date"></small>
+            <div style="background: #fff; padding: 20px; border-radius: 10px; border: 2px solid #eee; margin-bottom: 20px;">
+                <h3 style="color: var(--primary);">क्विज समाप्त!</h3>
+                <p id="final-stats" style="font-size: 1.2rem; font-weight: bold;"></p>
             </div>
-            <button id="dl-btn" style="display:none; width:100%; padding:15px; background:green; color:white; border:none; border-radius:10px; margin-top:10px;">Download (PNG)</button>
+            <button id="show-cert-btn" style="padding:15px 30px; background:var(--secondary); border:none; border-radius:10px; cursor:pointer; font-weight: bold;">सर्टिफिकेट जनरेट करें 🎓</button>
+            
+            <div id="certificate">
+                <h1 style="color:#1a2a6c; margin:0; font-family: serif;">QUIZ MASTER INDIA</h1>
+                <p style="text-transform: uppercase; letter-spacing: 2px; color: #666;">Honorary Certificate</p>
+                <p>यह प्रमाणित किया जाता है कि आपने</p>
+                <h2 style="color:#1a2a6c;">भारत की प्रमुख जयंती क्विज</h2>
+                <p>को सफलतापूर्वक पूरा किया है।</p>
+                <div style="font-size: 1.5rem; font-weight:bold; margin: 15px 0;">ग्रेड: <span id="cert-grade" style="color:#e67e22"></span></div>
+                <p class="bhavishya-msg">✨ Quiz Master India आपके उज्जवल भविष्य की मंगल कामना करता है! ✨</p>
+                <div style="margin-top:20px; font-size:0.9rem; color:#888;">दिनांक: <span id="cert-date"></span></div>
+            </div>
+            <button id="dl-btn" style="display:none; width:100%; padding:15px; background:#27ae60; color:white; border:none; border-radius:10px; margin-top:15px; font-weight: bold;">गैलरी में सेव करें (PNG)</button>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Quiz Master India | Educating Bharat</p>
+    <p>&copy; 2026 Quiz Master India | <a href="https://youtube.com/@quizmasterindia11?si=qex7VMHllQY1EW1J" style="color: white; text-decoration: none;">YouTube @quizmasterindia11</a></p>
 </footer>
 
 <script>
-    // [Yahan wahi 20 sawalon wala JavaScript logic hai jo humne pehle likha tha]
-    // ... Logic remains the same as previous response ...
     const questions = [
-        { q: "महात्मा गांधी जयंती कब मनाई जाती है?", a: ["2 अक्टूबर", "15 अगस्त", "26 जनवरी", "30 जनवरी"], c: 0, e: "गांधीजी का जन्म 2 अक्टूबर 1869 को हुआ था।" },
+        { q: "महात्मा गांधी जयंती कब मनाई जाती है?", a: ["2 अक्टूबर", "15 अगस्त", "26 जनवरी", "30 जनवरी"], c: 0, e: "गांधीजी का जन्म 2 अक्टूबर 1869 को पोरबंदर में हुआ था।" },
         { q: "शिक्षक दिवस किसकी याद में मनाते हैं?", a: ["नेहरू", "गांधी", "डॉ. सर्वपल्ली राधाकृष्णन", "अंबेडकर"], c: 2, e: "यह भारत के दूसरे राष्ट्रपति डॉ. राधाकृष्णन का जन्मदिन है।" },
-        { q: "स्वामी विवेकानंद की जयंती कब है?", a: ["12 जनवरी", "15 अगस्त", "12 अगस्त", "1 मई"], c: 0, e: "इसे 'राष्ट्रीय युवा दिवस' के रूप में मनाया जाता है।" },
-        { q: "डॉ. बी.आर. अंबेडकर जयंती कब है?", a: ["14 अप्रैल", "26 जनवरी", "15 जून", "1 मई"], c: 0, e: "बाबासाहेब का जन्म 14 अप्रैल 1891 को हुआ था।" },
-        { q: "पराक्रम दिवस किसकी जयंती पर मनाते हैं?", a: ["भगत सिंह", "सुभाष चंद्र बोस", "सरदार पटेल", "चंद्रशेखर आजाद"], c: 1, e: "23 जनवरी को नेताजी सुभाष चंद्र बोस की जयंती होती है।" },
-        { q: "बाल दिवस कब मनाया जाता है?", a: ["14 नवंबर", "20 नवंबर", "15 नवंबर", "10 अक्टूबर"], c: 0, e: "चाचा नेहरू के जन्मदिन को बाल दिवस माना जाता है।" },
-        { q: "राष्ट्रीय एकता दिवस कब है?", a: ["31 अक्टूबर", "30 अक्टूबर", "1 नवंबर", "15 अक्टूबर"], c: 0, e: "यह सरदार वल्लभभाई पटेल की जयंती है।" },
-        { q: "विश्व विद्यार्थी दिवस किसकी याद में है?", a: ["अब्दुल कलाम", "राधाकृष्णन", "नेहरू", "गांधी"], c: 0, e: "डॉ. ए.पी.जे. अब्दुल कलाम के जन्मदिन (15 अक्टूबर) को यह मनाया जाता है।" },
-        { q: "लाल बहादुर शास्त्री की जयंती कब है?", a: ["2 अक्टूबर", "11 जनवरी", "15 अगस्त", "26 जनवरी"], c: 0, e: "शास्त्री जी का जन्म भी 2 अक्टूबर को हुआ था।" },
-        { q: "राष्ट्रीय खेल दिवस कब है?", a: ["29 अगस्त", "28 अगस्त", "30 अगस्त", "15 अगस्त"], c: 0, e: "यह हॉकी जादूगर मेजर ध्यानचंद की जयंती है।" },
-        { q: "सुशासन दिवस कब मनाया जाता है?", a: ["25 दिसंबर", "24 दिसंबर", "26 दिसंबर", "1 जनवरी"], c: 0, e: "अटल बिहारी वाजपेयी जी के जन्मदिन को इस नाम से जानते हैं।" },
-        { q: "जनजातीय गौरव दिवस कब है?", a: ["15 नवंबर", "20 नवंबर", "10 नवंबर", "1 नवंबर"], c: 0, e: "यह भगवान बिरसा मुंडा की जयंती है।" },
-        { q: "सावित्रीबाई फुले जयंती कब है?", a: ["3 जनवरी", "1 जनवरी", "5 जनवरी", "10 जनवरी"], c: 0, e: "वह भारत की पहली महिला शिक्षिका थीं।" },
-        { q: "झांसी की रानी लक्ष्मीबाई की जयंती?", a: ["19 नवंबर", "18 जून", "15 अगस्त", "20 नवंबर"], c: 0, e: "रानी लक्ष्मीबाई का जन्म 19 नवंबर 1828 को हुआ था।" },
-        { q: "राष्ट्रीय गणित दिवस कब है?", a: ["22 दिसंबर", "21 दिसंबर", "25 दिसंबर", "15 दिसंबर"], c: 0, e: "श्रीनिवास रामानुजन की याद में मनाया जाता है।" },
-        { q: "गुरु नानक देव जी का जन्मदिन क्या कहलाता है?", a: ["गुरु पर्व", "प्रकाश पर्व", "दोनों", "बैसाखी"], c: 2, e: "इसे प्रकाश उत्सव या गुरु पूरब कहते हैं।" },
-        { q: "गांधी पुण्यतिथि (30 जनवरी) क्या है?", a: ["शहीद दिवस", "शांति दिवस", "अहिंसा दिवस", "सेवा दिवस"], c: 0, e: "30 जनवरी को बापू की याद में शहीद दिवस मनाते हैं।" },
-        { q: "वीर बाल दिवस कब शुरू हुआ?", a: ["26 दिसंबर", "14 नवंबर", "25 दिसंबर", "10 दिसंबर"], c: 0, e: "यह साहिबजादों की शहादत का सम्मान है।" },
-        { q: "महाराणा प्रताप जयंती (अंग्रेजी कैलेंडर)?", a: ["9 मई", "1 मई", "15 जून", "26 जनवरी"], c: 0, e: "वीर शिरोमणि प्रताप का जन्म 9 मई 1540 को हुआ था।" },
-        { q: "डॉ. राजेंद्र प्रसाद जयंती कब है?", a: ["3 दिसंबर", "5 दिसंबर", "15 अगस्त", "26 जनवरी"], c: 0, e: "प्रथम राष्ट्रपति का जन्म 3 दिसंबर 1884 को हुआ था।" }
+        { q: "स्वामी विवेकानंद की जयंती (12 जनवरी) को क्या कहते हैं?", a: ["शक्ति दिवस", "राष्ट्रीय युवा दिवस", "ज्ञान दिवस", "सेवा दिवस"], c: 1, e: "विवेकानंद जी युवाओं के प्रेरणास्रोत हैं।" },
+        { q: "डॉ. बी.आर. अंबेडकर जयंती कब मनाई जाती है?", a: ["14 अप्रैल", "15 अप्रैल", "26 जनवरी", "1 मई"], c: 0, e: "संविधान निर्माता बाबासाहेब का जन्म 14 अप्रैल 1891 को हुआ था।" },
+        { q: "नेताजी सुभाष चंद्र बोस की जयंती को क्या कहते हैं?", a: ["विजय दिवस", "पराक्रम दिवस", "आजाद दिवस", "क्रांति दिवस"], c: 1, e: "23 जनवरी को पराक्रम दिवस मनाया जाता है।" },
+        { q: "बाल दिवस (Children's Day) कब मनाया जाता है?", a: ["14 नवंबर", "20 नवंबर", "15 नवंबर", "14 अक्टूबर"], c: 0, e: "जवाहरलाल नेहरू के जन्मदिन को बाल दिवस माना जाता है।" },
+        { q: "राष्ट्रीय एकता दिवस (सरदार पटेल जयंती) कब है?", a: ["31 अक्टूबर", "30 अक्टूबर", "1 नवंबर", "15 अक्टूबर"], c: 0, e: "पटेल जी ने भारत के एकीकरण में मुख्य भूमिका निभाई थी।" },
+        { q: "डॉ. अब्दुल कलाम का जन्म दिवस किस रूप में प्रसिद्ध है?", a: ["मिसाइल दिवस", "विश्व विद्यार्थी दिवस", "विज्ञान दिवस", "युवा दिवस"], c: 1, e: "15 अक्टूबर को 'वर्ल्ड स्टूडेंट्स डे' के रूप में मनाया जाता है।" },
+        { q: "लाल बहादुर शास्त्री की जयंती कब होती है?", a: ["2 अक्टूबर", "11 जनवरी", "15 अगस्त", "26 जनवरी"], c: 0, e: "शास्त्री जी और गांधी जी दोनों का जन्मदिन 2 अक्टूबर को है।" },
+        { q: "मेजर ध्यानचंद की जयंती (29 अगस्त) किस रूप में मनाते हैं?", a: ["हॉकी दिवस", "राष्ट्रीय खेल दिवस", "ओलंपिक दिवस", "फिटनेस दिवस"], c: 1, e: "मेजर ध्यानचंद को 'हॉकी का जादूगर' कहा जाता है।" },
+        { q: "अटल बिहारी वाजपेयी की जयंती (25 दिसंबर) को क्या कहते हैं?", a: ["सुशासन दिवस", "शांति दिवस", "विकास दिवस", "अटल दिवस"], c: 0, e: "इसे 'Good Governance Day' के रूप में मनाया जाता है।" },
+        { q: "जनजातीय गौरव दिवस किसकी जयंती पर है?", a: ["बिरसा मुंडा", "तिलका मांझी", "सिद्धू मुर्मू", "हनुमान सिंह"], c: 0, e: "15 नवंबर को भगवान बिरसा मुंडा की जयंती मनाई जाती है।" },
+        { q: "सावित्रीबाई फुले की जयंती कब मनाई जाती है?", a: ["3 जनवरी", "5 जनवरी", "1 जनवरी", "10 जनवरी"], c: 0, e: "वह भारत की पहली महिला शिक्षिका थीं।" },
+        { q: "महारानी लक्ष्मीबाई की जयंती किस तारीख को है?", a: ["19 नवंबर", "18 जून", "15 अगस्त", "26 जनवरी"], c: 0, e: "झांसी की रानी का जन्म 19 नवंबर 1828 को हुआ था।" },
+        { q: "राष्ट्रीय गणित दिवस (रामानुजन जयंती) कब है?", a: ["22 दिसंबर", "21 दिसंबर", "25 दिसंबर", "15 दिसंबर"], c: 0, e: "महान गणितज्ञ श्रीनिवास रामानुजन की याद में मनाया जाता है।" },
+        { q: "गुरु नानक देव जी के प्रकाश पर्व को और क्या कहते हैं?", a: ["गुरु पूर्णिमा", "गुरु पूरब", "प्रकाश उत्सव", "B और C दोनों"], c: 3, e: "यह सिख धर्म के प्रथम गुरु का जन्मोत्सव है।" },
+        { q: "भारत में शहीद दिवस (30 जनवरी) किसकी याद में है?", a: ["भगत सिंह", "महात्मा गांधी", "सुभाष चंद्र बोस", "सरदार पटेल"], c: 1, e: "30 जनवरी को बापू की पुण्यतिथि पर श्रद्धांजलि दी जाती है।" },
+        { q: "वीर बाल दिवस (26 दिसंबर) किसकी याद में है?", a: ["साहिबजादा जोरावर व फतेह सिंह", "अभिमन्यु", "लव-कुश", "भरत"], c: 0, e: "यह साहिबजादों की शhaदत का सम्मान है।" },
+        { q: "महाराणा प्रताप जयंती कब मनाई जाती है?", a: ["9 मई", "15 जून", "1 मई", "26 जनवरी"], c: 0, e: "मेवाड़ के वीर योद्धा प्रताप का जन्म 9 मई 1540 को हुआ था।" },
+        { q: "डॉ. राजेंद्र प्रसाद की जयंती कब मनाई जाती है?", a: ["3 दिसंबर", "5 दिसंबर", "1 दिसंबर", "26 जनवरी"], c: 0, e: "भारत के प्रथम राष्ट्रपति का जन्म 3 दिसंबर 1884 को हुआ था।" }
     ];
 
     let currentIdx = 0, score = 0, timeLeft = 15, timerInterval;
@@ -150,7 +144,7 @@
     function loadQuestion() {
         if(currentIdx >= questions.length) return showResult();
         const q = questions[currentIdx];
-        document.getElementById("question-count").innerText = `प्रश्न: ${currentIdx+1}/${questions.length}`;
+        document.getElementById("question-count").innerText = `Q: ${currentIdx+1}/${questions.length}`;
         document.getElementById("q-text").innerText = q.q;
         const box = document.getElementById("options-box");
         box.innerHTML = "";
@@ -182,7 +176,7 @@
             btns[q.c].style.background = "#d4edda";
             btns[q.c].style.borderColor = "#27ae60";
         }
-        document.getElementById("live-score").innerText = `Score: ${score}`;
+        document.getElementById("live-score").innerText = `स्कोर: ${score}`;
         document.getElementById("exp-box").innerHTML = `<b>विवरण:</b> ${q.e}`;
         document.getElementById("exp-box").style.display = "block";
         document.getElementById("next-btn").style.display = "block";
@@ -195,8 +189,8 @@
         document.getElementById("result-ui").style.display = "block";
         const percent = (score/questions.length)*100;
         let grade = percent >= 80 ? "A+" : percent >= 60 ? "A" : "B";
-        document.getElementById("final-stats").innerText = `आपका स्कोर: ${score} / ${questions.length}`;
-        document.getElementById("cert-grade").innerText = `GRADE: ${grade}`;
+        document.getElementById("final-stats").innerText = `स्कोर: ${score} / ${questions.length} (${percent}%)`;
+        document.getElementById("cert-grade").innerText = grade;
         document.getElementById("cert-date").innerText = new Date().toLocaleDateString('hi-IN');
     }
 
