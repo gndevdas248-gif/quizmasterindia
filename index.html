@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Master India - Professional</title>
+    <title>Quiz Master India | भारत को जानें</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     
@@ -13,231 +13,274 @@
             --accent: #f1c40f;
             --success: #2ecc71;
             --error: #e74c3c;
-            --bg: #f4f7f9;
+            --light: #f4f7f9;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--bg);
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: var(--light);
+            color: #333;
+            scroll-behavior: smooth;
         }
 
-        /* Quiz Card Style */
-        .quiz-container {
-            width: 90%;
-            max-width: 600px;
+        /* --- Navigation & Header --- */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), url('https://images.unsplash.com/photo-1532375811400-d7d4c979d09c?auto=format&fit=crop&w=1200');
+            background-size: cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 3rem; margin: 0; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        .btn-main {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        /* --- Quiz Section --- */
+        #quiz-section {
+            padding: 60px 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quiz-card {
             background: white;
             padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
         }
 
         .progress-bar-wrap {
-            height: 10px;
+            height: 8px;
             background: #eee;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
             overflow: hidden;
         }
 
         #progress {
             height: 100%;
             width: 0%;
-            background: var(--primary);
-            transition: 0.4s;
+            background: var(--success);
+            transition: 0.4s ease;
         }
 
-        .quiz-header {
+        .timer-circle {
+            float: right;
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--error);
+            border-radius: 50%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--error);
         }
 
-        .timer {
-            background: var(--error);
+        .question-text { font-size: 22px; font-weight: 600; margin-bottom: 25px; }
+
+        .option-btn {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 12px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            background: white;
+            text-align: left;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option-btn:hover { border-color: var(--primary); background: #f8fbff; }
+
+        /* --- Certificate (Hidden Initially) --- */
+        #result-section { display: none; text-align: center; }
+
+        .certificate {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 12px solid var(--primary);
+            padding: 30px;
+            background: white;
+            position: relative;
+            color: var(--primary);
+        }
+
+        .cert-inner { border: 2px solid var(--accent); padding: 20px; }
+        .cert-name { font-size: 32px; text-decoration: underline; margin: 20px 0; font-family: serif; }
+
+        /* --- YouTube Section --- */
+        .video-section {
+            background: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .yt-card {
+            background: #ff0000;
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            text-decoration: none;
             font-weight: bold;
         }
 
-        .question-text {
-            font-size: 22px;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .options-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .option-btn {
-            padding: 15px;
-            border: 2px solid #eee;
-            border-radius: 12px;
-            background: none;
-            cursor: pointer;
-            text-align: left;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        .option-btn:hover {
-            border-color: var(--primary);
-            background: #f0f4ff;
-        }
-
-        /* Certificate Styles (Hidden initially) */
-        #result-section { display: none; text-align: center; }
-
-        .cert-wrapper {
-            padding: 10px;
-            background: #fff;
-            margin-top: 20px;
-        }
-
-        .certificate {
-            position: relative;
-            border: 10px solid var(--primary);
-            padding: 30px;
-            background: white;
-            color: var(--primary);
-        }
-
-        .cert-inner-border {
-            position: absolute;
-            top: 5px; left: 5px; right: 5px; bottom: 5px;
-            border: 2px solid var(--accent);
-        }
-
-        .cert-title { font-weight: 800; font-size: 30px; margin: 0; }
-        .user-name { font-size: 35px; color: #333; margin: 15px 0; text-decoration: underline; }
-
-        .download-btn {
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--success);
-            color: white;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 18px;
-        }
+        footer { background: #333; color: white; padding: 20px; text-align: center; }
     </style>
 </head>
 <body>
 
-    <div id="quiz-section" class="quiz-container">
-        <div class="progress-bar-wrap">
-            <div id="progress"></div>
-        </div>
-        
-        <div class="quiz-header">
-            <span style="font-weight:bold; color:#666;">प्रश्न <span id="q-num">1</span>/5</span>
-            <div class="timer" id="timer">15s</div>
-        </div>
+    <header>
+        <h2>QUIZ MASTER INDIA</h2>
+    </header>
 
-        <div class="question-text" id="question-text">Loading...</div>
-
-        <div class="options-grid" id="options-container">
-            </div>
+    <div class="hero">
+        <h1>भारत को जानें, खुद को परखें</h1>
+        <p>शिक्षा और ज्ञान का डिजिटल सफर</p>
+        <a href="#quiz-section" class="btn-main">आज का क्विज खेलें ➔</a>
     </div>
 
-    <div id="result-section" class="quiz-container">
-        <h2>क्विज़ पूरा हुआ!</h2>
-        <div id="certificate-container" class="cert-wrapper">
-            <div class="certificate">
-                <div class="cert-inner-border"></div>
-                <h1 class="cert-title">QUIZ MASTER INDIA</h1>
-                <p style="color:var(--accent); letter-spacing:3px;">HONORARY CERTIFICATE</p>
-                <p>यह प्रमाणित किया जाता है कि आपने सफलतापूर्वक क्विज पूरा किया।</p>
-                <h2 class="user-name">Winner</h2>
-                <p>स्कोर: <span id="final-score">0</span>/5</p>
-                <p>दिनांक: <span id="date"></span></p>
-                <div style="margin-top:20px; font-style: italic;">Verified by QMI Team</div>
-            </div>
-        </div>
-        <button class="download-btn" onclick="downloadCert()">सर्टिफिकेट सेव करें</button>
+    <div class="video-section">
+        <h2>हमारे YouTube चैनल से जुड़ें</h2>
+        <p>बेहतरीन एजुकेशनल वीडियो के लिए सब्सक्राइब करें।</p>
+        <a href="https://youtube.com/@quizmasterindia11" class="yt-card">YouTube पर वीडियो देखें 🎥</a>
     </div>
+
+    <div id="quiz-section">
+        <div class="quiz-card" id="quiz-box">
+            <div class="timer-circle" id="timer">15</div>
+            <div class="progress-bar-wrap">
+                <div id="progress"></div>
+            </div>
+            
+            <p>प्रश्न <span id="q-count">1</span>/5</p>
+            <div class="question-text" id="q-text">प्रश्न लोड हो रहा है...</div>
+            <div id="options-box"></div>
+        </div>
+
+        <div id="result-section" class="quiz-card">
+            <h2>बधाई हो!</h2>
+            <div id="certificate-capture">
+                <div class="certificate">
+                    <div class="cert-inner">
+                        <h2 style="margin:0;">QUIZ MASTER INDIA</h2>
+                        <p style="color:var(--accent); letter-spacing:2px;">HONORARY CERTIFICATE</p>
+                        <p>यह प्रमाणित किया जाता है कि आपने सफलतापूर्वक</p>
+                        <h3>भारत की प्रमुख जयंती क्विज</h3>
+                        <p>को पूरा किया है।</p>
+                        <div class="cert-name">Winner</div>
+                        <p>स्कोर: <span id="final-score">0</span>/5</p>
+                        <p>दिनांक: <span id="cert-date"></span></p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-main" style="background:var(--success); color:white; border:none; cursor:pointer;" onclick="saveCert()">सर्टिफिकेट गैलरी में सेव करें</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Quiz Master India | ज्ञान ही शक्ति है</p>
+    </footer>
 
     <script>
         const questions = [
-            { q: "भारत के प्रथम प्रधानमंत्री कौन थे?", a: ["जवाहरलाल नेहरू", "महात्मा गांधी", "पटेल", "आजाद"], correct: 0 },
-            { q: "शिक्षक दिवस किसकी जयंती पर मनाया जाता है?", a: ["गांधी", "नेहरू", "डॉ. राधाकृष्णन", "शास्त्री"], correct: 2 },
-            // आप यहाँ और सवाल जोड़ सकते हैं
+            { q: "महात्मा गांधी की जयंती कब मनाई जाती है?", a: ["2 अक्टूबर", "15 अगस्त", "26 जनवरी", "14 नवंबर"], c: 0 },
+            { q: "स्वामी विवेकानंद की जयंती को किस रूप में मनाया जाता है?", a: ["शिक्षक दिवस", "युवा दिवस", "बाल दिवस", "विज्ञान दिवस"], c: 1 },
+            { q: "डॉ. बी.आर. अंबेडकर की जयंती कब होती है?", a: ["14 अप्रैल", "1 मई", "15 अगस्त", "2 अक्टूबर"], c: 0 },
+            { q: "शिक्षक दिवस किसकी याद में मनाया जाता है?", a: ["नेहरू", "गांधी", "डॉ. सर्वपल्ली राधाकृष्णन", "अब्दुल कलाम"], c: 2 },
+            { q: "बाल दिवस (Children's Day) कब मनाया जाता है?", a: ["2 अक्टूबर", "14 नवंबर", "5 सितंबर", "12 जनवरी"], c: 1 }
         ];
 
-        let currentQ = 0;
+        let currentIdx = 0;
         let score = 0;
-        let timeLeft = 15;
         let timer;
+        let timeLeft = 15;
 
-        function startTimer() {
+        function startQuiz() {
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            clearInterval(timer);
             timeLeft = 15;
-            document.getElementById('timer').innerText = timeLeft + 's';
+            document.getElementById('timer').innerText = timeLeft;
+            
+            let q = questions[currentIdx];
+            document.getElementById('q-text').innerText = q.q;
+            document.getElementById('q-count').innerText = currentIdx + 1;
+            document.getElementById('progress').style.width = ((currentIdx + 1) / questions.length) * 100 + "%";
+
+            const optionsBox = document.getElementById('options-box');
+            optionsBox.innerHTML = '';
+            q.a.forEach((opt, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkAns(i);
+                optionsBox.appendChild(btn);
+            });
+
             timer = setInterval(() => {
                 timeLeft--;
-                document.getElementById('timer').innerText = timeLeft + 's';
-                if(timeLeft <= 0) {
-                    clearInterval(timer);
-                    nextQuestion();
-                }
+                document.getElementById('timer').innerText = timeLeft;
+                if(timeLeft <= 0) checkAns(-1);
             }, 1000);
         }
 
-        function loadQuestion() {
-            clearInterval(timer);
-            startTimer();
-            let q = questions[currentQ];
-            document.getElementById('question-text').innerText = q.q;
-            document.getElementById('q-num').innerText = currentQ + 1;
-            document.getElementById('progress').style.width = ((currentQ + 1) / questions.length) * 100 + "%";
-            
-            let optionsHTML = "";
-            q.a.forEach((opt, index) => {
-                optionsHTML += `<button class="option-btn" onclick="handleAnswer(${index})">${opt}</button>`;
-            });
-            document.getElementById('options-container').innerHTML = optionsHTML;
-        }
-
-        function handleAnswer(index) {
-            if(index === questions[currentQ].correct) score++;
-            nextQuestion();
-        }
-
-        function nextQuestion() {
-            currentQ++;
-            if(currentQ < questions.length) {
-                loadQuestion();
+        function checkAns(idx) {
+            if(idx === questions[currentIdx].c) score++;
+            currentIdx++;
+            if(currentIdx < questions.length) {
+                renderQuestion();
             } else {
-                showResult();
+                showFinal();
             }
         }
 
-        function showResult() {
-            document.getElementById('quiz-section').style.display = 'none';
+        function showFinal() {
+            clearInterval(timer);
+            document.getElementById('quiz-box').style.display = 'none';
             document.getElementById('result-section').style.display = 'block';
             document.getElementById('final-score').innerText = score;
-            document.getElementById('date').innerText = new Date().toLocaleDateString();
+            document.getElementById('cert-date').innerText = new Date().toLocaleDateString();
         }
 
-        function downloadCert() {
-            const cert = document.getElementById('certificate-container');
+        function saveCert() {
+            const cert = document.getElementById('certificate-capture');
             html2canvas(cert).then(canvas => {
-                let link = document.createElement('a');
-                link.download = 'QMI-Certificate.png';
+                const link = document.createElement('a');
+                link.download = 'QMI_Certificate.png';
                 link.href = canvas.toDataURL();
                 link.click();
             });
         }
 
-        loadQuestion();
+        startQuiz();
     </script>
 </body>
 </html>
