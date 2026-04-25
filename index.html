@@ -3,439 +3,373 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz Master India | भारत को जानें</title>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Rajdhani:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<title>मंडी उपनिरीक्षक प्रश्न बैंक 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;600;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --saffron: #FF6B00;
-  --gold: #FFB300;
-  --dark: #0A0A0F;
-  --dark2: #111118;
-  --dark3: #1A1A24;
-  --card: #13131A;
-  --border: rgba(255,107,0,0.18);
-  --text: #F0EEE8;
-  --muted: #8888A0;
-  --green: #00C853;
-  --red: #FF1744;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
-  background: var(--dark);
-  color: var(--text);
-  font-family: 'Rajdhani', sans-serif;
-  overflow-x: hidden;
-}
+  :root {
+    --bg: #0a0f1e;
+    --card: #111827;
+    --card2: #1a2235;
+    --accent: #f59e0b;
+    --accent2: #10b981;
+    --accent3: #3b82f6;
+    --accent4: #ec4899;
+    --accent5: #8b5cf6;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --border: #1e293b;
+    --correct: #10b981;
+    --wrong: #ef4444;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    min-height: 100vh;
+  }
 
-/* NAVBAR */
-nav {
-  position: fixed; top:0; left:0; right:0; z-index:200;
-  background: rgba(10,10,15,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%; height: 64px;
-}
-.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
-.logo-icon {
-  width:38px; height:38px;
-  background: linear-gradient(135deg, var(--saffron), var(--gold));
-  border-radius:8px;
-  display:flex; align-items:center; justify-content:center;
-  font-size:20px; font-weight:800; color:#0A0A0F;
-  font-family:'Baloo 2',cursive;
-}
-.logo-text { font-family:'Baloo 2',cursive; font-weight:800; font-size:1.1rem; color:#fff; }
-.logo-text span { color:var(--saffron); }
-.nav-links { display:flex; gap:4px; list-style:none; }
-.nav-links a {
-  color:var(--muted); text-decoration:none;
-  font-size:0.95rem; font-weight:600; letter-spacing:0.5px;
-  padding:7px 14px; border-radius:7px; transition:all 0.2s;
-}
-.nav-links a:hover { color:var(--saffron); background:rgba(255,107,0,0.1); }
-.nav-yt {
-  background:#FF0000 !important; color:#fff !important;
-  font-weight:700 !important; display:flex; align-items:center; gap:6px;
-}
-.nav-yt:hover { background:#CC0000 !important; }
-.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:24px; height:2px; background:var(--text); border-radius:2px; }
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    padding: 24px 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(245,158,11,0.15) 0%, transparent 70%);
+  }
+  .header h1 {
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: clamp(20px, 5vw, 32px);
+    font-weight: 800;
+    color: var(--accent);
+    position: relative;
+    text-shadow: 0 0 30px rgba(245,158,11,0.4);
+  }
+  .header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px;
+    position: relative;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 8px;
+    position: relative;
+  }
 
-/* HERO */
-#home {
-  min-height:100vh; display:flex; align-items:center; justify-content:center;
-  position:relative; padding:100px 5% 60px; overflow:hidden;
-}
-.hero-bg {
-  position:absolute; inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,107,0,0.13) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 85% 85%, rgba(255,179,0,0.07) 0%, transparent 50%);
-}
-.hero-grid {
-  position:absolute; inset:0;
-  background-image: linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
-  background-size:60px 60px;
-}
-.hero-content { position:relative; text-align:center; max-width:780px; margin:0 auto; }
-.hero-badge {
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.3);
-  border-radius:50px; padding:6px 18px;
-  font-size:0.85rem; color:var(--saffron); font-weight:600; letter-spacing:1px;
-  margin-bottom:24px; animation: fadeUp 0.6s ease both;
-}
-.hero-title {
-  font-family:'Baloo 2',cursive; font-size:clamp(2.6rem,7vw,5.2rem);
-  font-weight:800; line-height:1.06; margin-bottom:18px;
-  animation: fadeUp 0.6s 0.1s ease both;
-}
-.hero-title .t1 { color:#fff; display:block; }
-.hero-title .t2 {
-  display:block;
-  background:linear-gradient(90deg, var(--saffron), var(--gold));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-}
-.hero-sub {
-  font-size:1.1rem; color:var(--muted); margin-bottom:38px;
-  font-family:'Tiro Devanagari Hindi',serif; line-height:1.8;
-  animation: fadeUp 0.6s 0.2s ease both;
-}
-.hero-btns {
-  display:flex; gap:14px; justify-content:center; flex-wrap:wrap;
-  animation: fadeUp 0.6s 0.3s ease both;
-}
-.btn-primary {
-  background:linear-gradient(135deg, var(--saffron), var(--gold));
-  color:#0A0A0F; font-family:'Rajdhani',sans-serif;
-  font-weight:700; font-size:1rem; letter-spacing:1px;
-  padding:14px 32px; border:none; border-radius:10px; cursor:pointer;
-  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-  transition:all 0.25s; box-shadow:0 4px 24px rgba(255,107,0,0.3);
-}
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(255,107,0,0.4); }
-.btn-yt {
-  background:rgba(255,0,0,0.12); color:#FF4444;
-  border:1px solid rgba(255,0,0,0.3);
-  font-family:'Rajdhani',sans-serif; font-weight:700;
-  font-size:1rem; letter-spacing:1px;
-  padding:14px 32px; border-radius:10px; cursor:pointer;
-  text-decoration:none; display:inline-flex; align-items:center; gap:8px;
-  transition:all 0.25s;
-}
-.btn-yt:hover { background:rgba(255,0,0,0.2); transform:translateY(-2px); }
-.hero-stats {
-  display:flex; gap:40px; justify-content:center; margin-top:60px; flex-wrap:wrap;
-  animation: fadeUp 0.6s 0.4s ease both;
-}
-.stat { text-align:center; }
-.stat-num { font-family:'Baloo 2',cursive; font-size:2rem; font-weight:800; color:var(--saffron); }
-.stat-label { font-size:0.85rem; color:var(--muted); letter-spacing:1px; }
+  /* Subject tabs */
+  .tabs-wrap {
+    overflow-x: auto;
+    padding: 16px 16px 0;
+    scrollbar-width: none;
+  }
+  .tabs-wrap::-webkit-scrollbar { display: none; }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    min-width: max-content;
+  }
+  .tab {
+    padding: 10px 18px;
+    border-radius: 10px 10px 0 0;
+    border: none;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--card2);
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  .tab.active {
+    color: #fff;
+    border-bottom-color: var(--tab-color);
+    background: var(--card);
+  }
+  .tab:hover:not(.active) { background: var(--card); color: var(--text); }
 
-/* SECTION COMMON */
-section { padding:90px 5%; }
-.section-tag {
-  display:inline-flex; align-items:center; gap:8px;
-  color:var(--saffron); font-size:0.82rem; font-weight:700;
-  letter-spacing:2px; text-transform:uppercase; margin-bottom:14px;
-}
-.section-tag::before { content:''; width:24px; height:2px; background:var(--saffron); display:block; }
-.section-title {
-  font-family:'Baloo 2',cursive; font-size:clamp(2rem,4vw,3rem);
-  font-weight:800; margin-bottom:14px; color:#fff;
-}
-.section-title span {
-  background:linear-gradient(90deg,var(--saffron),var(--gold));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-}
-.section-sub { color:var(--muted); font-size:1rem; line-height:1.7; max-width:560px; }
+  /* Main content */
+  .main { padding: 0 16px 80px; }
 
-/* QUIZ SECTION */
-#quiz { background:var(--dark2); }
-.quiz-wrapper { max-width:860px; margin:0 auto; }
-.quiz-header { text-align:center; margin-bottom:50px; }
-.quiz-header .section-sub { margin:0 auto; }
-.quiz-box {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:20px; overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-}
-.quiz-top {
-  background:linear-gradient(135deg, rgba(255,107,0,0.15), rgba(255,179,0,0.08));
-  border-bottom:1px solid var(--border);
-  padding:24px 32px;
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;
-}
-.quiz-title-bar { font-family:'Baloo 2',cursive; font-size:1.2rem; font-weight:700; color:#fff; }
-.quiz-title-bar small { display:block; color:var(--muted); font-size:0.8rem; font-weight:400; font-family:'Rajdhani',sans-serif; margin-top:2px; }
-.timer-box {
-  background:rgba(255,107,0,0.12); border:1px solid rgba(255,107,0,0.3);
-  border-radius:10px; padding:8px 20px;
-  font-family:'Baloo 2',cursive; font-size:1.5rem; font-weight:800; color:var(--saffron);
-  min-width:70px; text-align:center;
-}
-.timer-box.warning { color:var(--red); border-color:rgba(255,23,68,0.4); background:rgba(255,23,68,0.1); animation:pulse 0.5s infinite; }
-.progress-bar-wrap { height:4px; background:rgba(255,255,255,0.06); }
-.progress-bar { height:4px; background:linear-gradient(90deg,var(--saffron),var(--gold)); transition:width 0.4s ease; width:0%; }
-.quiz-body { padding:36px 32px; }
-.q-number { font-size:0.82rem; color:var(--muted); letter-spacing:2px; font-weight:600; margin-bottom:10px; }
-.q-text {
-  font-family:'Tiro Devanagari Hindi',serif;
-  font-size:clamp(1.1rem,2.5vw,1.4rem);
-  color:#fff; line-height:1.65; margin-bottom:32px;
-}
-.options { display:grid; gap:12px; }
-.option-btn {
-  background:rgba(255,255,255,0.04); border:1.5px solid rgba(255,255,255,0.1);
-  border-radius:12px; padding:16px 20px;
-  color:var(--text); font-family:'Rajdhani',sans-serif;
-  font-size:1rem; font-weight:600; text-align:left; cursor:pointer;
-  transition:all 0.2s; display:flex; align-items:center; gap:14px;
-}
-.option-btn:hover:not(:disabled) { border-color:var(--saffron); background:rgba(255,107,0,0.08); color:#fff; }
-.option-btn.correct { border-color:var(--green); background:rgba(0,200,83,0.12); color:var(--green); }
-.option-btn.wrong { border-color:var(--red); background:rgba(255,23,68,0.1); color:var(--red); }
-.option-btn:disabled { cursor:not-allowed; }
-.opt-label {
-  width:30px; height:30px; border-radius:8px;
-  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:0.85rem; flex-shrink:0; transition:all 0.2s;
-}
-.option-btn.correct .opt-label { background:var(--green); border-color:var(--green); color:#0A0A0F; }
-.option-btn.wrong .opt-label { background:var(--red); border-color:var(--red); color:#fff; }
-.quiz-footer {
-  border-top:1px solid rgba(255,255,255,0.06);
-  padding:20px 32px;
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.score-live { font-size:0.9rem; color:var(--muted); font-weight:600; }
-.score-live span { color:var(--saffron); font-size:1.1rem; font-family:'Baloo 2',cursive; }
-.btn-next {
-  background:linear-gradient(135deg,var(--saffron),var(--gold));
-  color:#0A0A0F; border:none; border-radius:9px;
-  padding:11px 28px; font-family:'Rajdhani',sans-serif;
-  font-weight:700; font-size:0.95rem; letter-spacing:1px;
-  cursor:pointer; transition:all 0.2s; display:none;
-}
-.btn-next:hover { transform:scale(1.03); }
-.btn-next.show { display:inline-flex; align-items:center; gap:8px; }
-.result-box { display:none; text-align:center; padding:50px 32px; }
-.result-box.show { display:block; }
-.result-emoji { font-size:4rem; margin-bottom:16px; }
-.result-title { font-family:'Baloo 2',cursive; font-size:2.2rem; font-weight:800; color:#fff; margin-bottom:8px; }
-.result-score {
-  font-family:'Baloo 2',cursive; font-size:3.5rem; font-weight:800;
-  background:linear-gradient(90deg,var(--saffron),var(--gold));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-  margin:16px 0;
-}
-.result-msg { color:var(--muted); font-size:1rem; font-family:'Tiro Devanagari Hindi',serif; line-height:1.7; margin-bottom:28px; }
-.result-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.btn-restart {
-  background:rgba(255,107,0,0.12); border:1px solid var(--saffron);
-  color:var(--saffron); font-family:'Rajdhani',sans-serif;
-  font-weight:700; font-size:0.95rem; letter-spacing:1px;
-  padding:12px 24px; border-radius:9px; cursor:pointer; transition:all 0.2s;
-}
-.btn-restart:hover { background:rgba(255,107,0,0.2); }
+  /* Stats bar */
+  .stats {
+    display: flex;
+    gap: 10px;
+    padding: 14px 0;
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    flex: 1;
+    min-width: 80px;
+    background: var(--card);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .stat-box .num {
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 22px;
+    font-weight: 800;
+  }
+  .stat-box .lbl { font-size: 10px; color: var(--muted); margin-top: 2px; }
+  .num.total { color: var(--accent3); }
+  .num.correct { color: var(--correct); }
+  .num.wrong { color: var(--wrong); }
+  .num.pending { color: var(--accent); }
 
-/* YOUTUBE SECTION */
-#youtube { background:var(--dark); }
-.yt-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1100px; margin:0 auto; }
-.yt-features { display:flex; flex-direction:column; gap:14px; margin-bottom:32px; }
-.yt-feat {
-  display:flex; align-items:flex-start; gap:14px;
-  background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07);
-  border-radius:12px; padding:14px 18px;
-}
-.yt-feat-icon {
-  width:38px; height:38px; border-radius:8px;
-  background:rgba(255,0,0,0.12); border:1px solid rgba(255,0,0,0.2);
-  display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0;
-}
-.yt-feat-text strong { display:block; font-size:0.95rem; color:#fff; margin-bottom:3px; }
-.yt-feat-text span { font-size:0.85rem; color:var(--muted); }
-.yt-card { background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.5); }
-.yt-thumb {
-  position:relative; background:linear-gradient(135deg,#1a0a00,#2a1000);
-  aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; overflow:hidden;
-}
-.yt-thumb-bg { position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(255,107,0,0.15) 0%, transparent 70%); }
-.yt-thumb-text { position:absolute; bottom:20px; left:20px; right:20px; text-align:center; }
-.yt-thumb-text h3 { font-family:'Baloo 2',cursive; font-size:1.2rem; color:#fff; }
-.yt-thumb-text p { font-size:0.8rem; color:rgba(255,255,255,0.5); margin-top:4px; }
-.play-btn {
-  width:72px; height:72px; background:#FF0000; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; position:relative; z-index:1;
-  font-size:28px; box-shadow:0 8px 32px rgba(255,0,0,0.4);
-  transition:transform 0.2s; cursor:pointer; text-decoration:none; color:#fff;
-}
-.play-btn:hover { transform:scale(1.08); }
-.yt-channel-info {
-  padding:20px 24px;
-  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;
-}
-.yt-channel-name { font-family:'Baloo 2',cursive; font-size:1.1rem; font-weight:700; color:#fff; }
-.yt-channel-name small { display:block; font-size:0.8rem; color:var(--muted); font-weight:400; font-family:'Rajdhani',sans-serif; }
-.btn-subscribe {
-  background:#FF0000; color:#fff; border:none; border-radius:8px;
-  padding:10px 20px; font-family:'Rajdhani',sans-serif;
-  font-weight:700; font-size:0.9rem; letter-spacing:0.5px;
-  cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:6px;
-  transition:all 0.2s;
-}
-.btn-subscribe:hover { background:#CC0000; transform:scale(1.03); }
+  /* Progress bar */
+  .progress-wrap { margin-bottom: 14px; }
+  .progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    background: linear-gradient(90deg, var(--accent3), var(--accent));
+  }
+  .progress-label { font-size: 11px; color: var(--muted); margin-top: 4px; text-align: right; }
 
-/* ABOUT */
-#about { background:var(--dark2); }
-.about-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:1100px; margin:0 auto; }
-.about-visual { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.about-card {
-  background:var(--card); border:1px solid var(--border);
-  border-radius:16px; padding:24px 20px; text-align:center;
-  transition:transform 0.25s, box-shadow 0.25s;
-}
-.about-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(255,107,0,0.1); }
-.about-card-icon { font-size:2.2rem; margin-bottom:10px; }
-.about-card-num { font-family:'Baloo 2',cursive; font-size:1.8rem; font-weight:800; color:var(--saffron); }
-.about-card-label { font-size:0.82rem; color:var(--muted); margin-top:4px; letter-spacing:0.5px; }
-.about-card.span2 { grid-column:span 2; }
-.about-points { display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
-.about-point { display:flex; align-items:flex-start; gap:12px; }
-.ap-dot { width:8px; height:8px; background:var(--saffron); border-radius:50%; margin-top:7px; flex-shrink:0; }
-.ap-text { font-size:0.95rem; color:var(--muted); line-height:1.6; }
-.ap-text strong { color:var(--text); }
+  /* Question card */
+  .q-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+    position: relative;
+  }
+  .q-card.answered-correct { border-color: var(--correct); }
+  .q-card.answered-wrong { border-color: var(--wrong); }
+  .q-num {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .q-num-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    color: #000;
+  }
+  .q-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option {
+    padding: 10px 14px;
+    background: var(--card2);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+    color: var(--text);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    line-height: 1.5;
+  }
+  .option:hover:not(:disabled) {
+    background: #1e2d45;
+    border-color: var(--accent3);
+    transform: translateX(3px);
+  }
+  .option.correct { background: rgba(16,185,129,0.15); border-color: var(--correct); color: #6ee7b7; }
+  .option.wrong { background: rgba(239,68,68,0.15); border-color: var(--wrong); color: #fca5a5; }
+  .option:disabled { cursor: default; transform: none; }
 
-/* FOOTER */
-footer {
-  background:var(--dark); border-top:1px solid var(--border);
-  padding:50px 5% 30px;
-}
-.footer-inner { max-width:1100px; margin:0 auto; }
-.footer-top {
-  display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;
-  margin-bottom:40px;
-}
-.footer-brand p { color:var(--muted); font-size:0.88rem; margin-top:10px; max-width:260px; line-height:1.6; }
-.footer-links h4 { color:#fff; font-size:0.9rem; letter-spacing:1px; margin-bottom:16px; }
-.footer-links ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-.footer-links a { color:var(--muted); text-decoration:none; font-size:0.88rem; transition:color 0.2s; }
-.footer-links a:hover { color:var(--saffron); }
-.footer-social { display:flex; gap:10px; margin-top:16px; }
-.social-btn {
-  width:38px; height:38px; border-radius:8px;
-  background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none; font-size:16px; transition:all 0.2s; color:var(--text);
-}
-.social-btn:hover { background:rgba(255,107,0,0.15); border-color:var(--saffron); }
-.footer-bottom {
-  border-top:1px solid rgba(255,255,255,0.06);
-  padding-top:24px; text-align:center;
-  color:var(--muted); font-size:0.82rem;
-}
-.footer-bottom span { color:var(--saffron); }
+  .explanation {
+    margin-top: 10px;
+    padding: 10px 12px;
+    background: rgba(59,130,246,0.1);
+    border-left: 3px solid var(--accent3);
+    border-radius: 6px;
+    font-size: 12px;
+    color: #93c5fd;
+    line-height: 1.5;
+    display: none;
+  }
+  .explanation.show { display: block; }
 
-/* ANIMATIONS */
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(24px); }
-  to { opacity:1; transform:translateY(0); }
-}
-@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.6; } }
+  /* Reset btn */
+  .reset-btn {
+    display: block;
+    margin: 20px auto 0;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--accent), #d97706);
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+  }
+  .reset-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(245,158,11,0.4); }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links { display:none; flex-direction:column; position:fixed; top:64px; left:0; right:0; background:rgba(10,10,15,0.98); padding:20px; gap:4px; border-bottom:1px solid var(--border); }
-  .nav-links.open { display:flex; }
-  .hamburger { display:flex; }
-  .yt-layout, .about-layout { grid-template-columns:1fr; }
-  .quiz-body { padding:24px 18px; }
-  .quiz-top, .quiz-footer { padding:18px; }
-  .hero-stats { gap:24px; }
-  .about-visual { max-width:400px; margin:0 auto; }
-}
+  /* Score card at bottom */
+  .score-card {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(17,24,39,0.95);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 100;
+  }
+  .score-info { font-size: 12px; color: var(--muted); }
+  .score-pct {
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent);
+  }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <a href="#home" class="nav-logo">
-    <div class="logo-icon">Q</div>
-    <div class="logo-text">Quiz Master <span>India</span></div>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#quiz">Quiz</a></li>
-    <li><a href="#youtube">YouTube</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="https://youtube.com/@quizmasterindia11?si=V9pKdPjoaIdzNrF8" target="_blank" class="nav-yt">▶ Subscribe</a></li>
-  </ul>
-  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+<div class="header">
+  <h1>🏛️ मंडी उपनिरीक्षक प्रश्न बैंक</h1>
+  <p>CG Vyapam 2026 | परीक्षा तैयारी</p>
+  <span class="badge">प्रत्येक विषय — 50 प्रश्न</span>
+</div>
 
-<!-- HERO -->
-<section id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-badge">🇮🇳 QUIZ MASTER INDIA</div>
-    <h1 class="hero-title">
-      <span class="t1">भारत को जानें,</span>
-      <span class="t2">खुद को परखें</span>
-    </h1>
-    <p class="hero-sub">रोज़ नए सवाल, नई चुनौती — इतिहास, भूगोल और सामान्य ज्ञान के साथ अपनी जानकारी बढ़ाएं।</p>
-    <div class="hero-btns">
-      <a href="#quiz" class="btn-primary">🎯 आज का क्विज खेलें</a>
-      <a href="https://youtube.com/@quizmasterindia11?si=V9pKdPjoaIdzNrF8" target="_blank" class="btn-yt">▶ YouTube देखें</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">Daily</div><div class="stat-label">NEW QUIZ</div></div>
-      <div class="stat"><div class="stat-num">Hindi</div><div class="stat-label">MEDIUM</div></div>
-      <div class="stat"><div class="stat-num">Free</div><div class="stat-label">FOREVER</div></div>
-    </div>
-  </div>
-</section>
+<div class="tabs-wrap">
+  <div class="tabs" id="tabs"></div>
+</div>
 
-<!-- QUIZ SECTION -->
-<section id="quiz">
-  <div class="quiz-wrapper">
-    <div class="quiz-header">
-      <div class="section-tag">आज का क्विज</div>
-      <h2 class="section-title">अपना <span>ज्ञान परखें</span></h2>
-      <p class="section-sub">हर सवाल के लिए 15 सेकंड। सोच-समझकर जवाब दें!</p>
-    </div>
-    <div class="quiz-box">
-      <div id="quizPlay">
-        <div class="quiz-top">
-          <div class="quiz-title-bar">
-            भारत सामान्य ज्ञान क्विज
-            <small id="dateLabel"></small>
-          </div>
-          <div class="timer-box" id="timerBox">15</div>
-        </div>
-        <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
-        <div class="quiz-body">
-          <div class="q-number" id="qNumber">प्रश्न 1 / 5</div>
-          <div class="q-text" id="qText">लोड हो रहा है...</div>
-          <div class="options" id="optionsBox"></div>
-        </div>
-        <div class="quiz-footer">
-          <div class="score-live">स्कोर: <span id="liveScore">0</span></div>
-          <button class="btn-next" id="btnNext" onclick="nextQuestion()">अगला प्रश्न →</button>
-        </div>
-      </div>
-      <div class="result-box" id="resultBox">
-        <div class="result-emoji" id="resultEmoji">🏆</div>
-        <div class="result-title" id="resultTitle">शानदार!</div>
-        <div class="result-score" id="resultScore">0/5</div>
-        <div class="result-msg" id="resultMsg"></div>
-        <div class="result-btns">
-          <button class="btn-restart" onclick="restartQuiz()">🔄 फिर खेलें</button>
-       
+<div class="main">
+  <div class="stats">
+    <div class="stat-box"><div class="num total" id="s-total">0</div><div class="lbl">कुल प्रश्न</div></div>
+    <div class="stat-box"><div class="num correct" id="s-correct">0</div><div class="lbl">सही ✓</div></div>
+    <div class="stat-box"><div class="num wrong" id="s-wrong">0</div><div class="lbl">गलत ✗</div></div>
+    <div class="stat-box"><div class="num pending" id="s-pending">0</div><div class="lbl">बाकी</div></div>
+  </div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+    <div class="progress-label" id="prog-label">0 / 50 प्रश्न हल किए</div>
+  </div>
+  <div id="questions-container"></div>
+  <button class="reset-btn" onclick="resetQuiz()">🔄 पुनः प्रयास करें</button>
+</div>
+
+<div class="score-card">
+  <div class="score-info" id="score-info">इस विषय का स्कोर</div>
+  <div class="score-pct" id="score-pct">0%</div>
+</div>
+
+<script>
+const subjects = [
+  { id: 'gk', name: 'सामान्य ज्ञान', color: '#f59e0b' },
+  { id: 'cg', name: 'CG सामान्य ज्ञान', color: '#10b981' },
+  { id: 'reasoning', name: 'तर्कशक्ति', color: '#3b82f6' },
+  { id: 'math', name: 'गणित', color: '#ec4899' },
+  { id: 'english', name: 'English', color: '#8b5cf6' }
+];
+
+const allQuestions = {
+  gk: [
+    { q: "भारत का संविधान कब लागू हुआ?", opts: ["15 अगस्त 1947", "26 जनवरी 1950", "26 नवंबर 1949", "2 अक्टूबर 1948"], ans: 1, exp: "भारत का संविधान 26 जनवरी 1950 को लागू हुआ, इसीलिए यह दिन गणतंत्र दिवस के रूप में मनाया जाता है।" },
+    { q: "भारत के प्रथम राष्ट्रपति कौन थे?", opts: ["जवाहरलाल नेहरू", "डॉ. राजेंद्र प्रसाद", "सर्वपल्ली राधाकृष्णन", "लाल बहादुर शास्त्री"], ans: 1, exp: "डॉ. राजेंद्र प्रसाद भारत के पहले राष्ट्रपति (1950-1962) थे।" },
+    { q: "संयुक्त राष्ट्र संघ की स्थापना किस वर्ष हुई?", opts: ["1944", "1945", "1946", "1947"], ans: 1, exp: "UNO की स्थापना 24 अक्टूबर 1945 को हुई थी।" },
+    { q: "भारत में लोकसभा में कुल कितनी सीटें हैं?", opts: ["542", "543", "545", "550"], ans: 1, exp: "लोकसभा में 543 निर्वाचित सीटें हैं।" },
+    { q: "नोबेल पुरस्कार पाने वाले पहले भारतीय कौन थे?", opts: ["सी.वी. रमन", "रवींद्रनाथ टैगोर", "अमर्त्य सेन", "मदर टेरेसा"], ans: 1, exp: "रवींद्रनाथ टैगोर को 1913 में साहित्य का नोबेल पुरस्कार मिला था।" },
+    { q: "भारत का राष्ट्रीय फल क्या है?", opts: ["केला", "आम", "अमरूद", "सेब"], ans: 1, exp: "आम (Mangifera indica) भारत का राष्ट्रीय फल है।" },
+    { q: "भारत में कितने राज्य हैं?", opts: ["27", "28", "29", "30"], ans: 1, exp: "वर्तमान में भारत में 28 राज्य और 8 केंद्र शासित प्रदेश हैं।" },
+    { q: "विश्व का सबसे बड़ा महाद्वीप कौन सा है?", opts: ["अफ्रीका", "एशिया", "यूरोप", "उत्तरी अमेरिका"], ans: 1, exp: "एशिया क्षेत्रफल और जनसंख्या दोनों में सबसे बड़ा महाद्वीप है।" },
+    { q: "भारत का राष्ट्रीय पशु क्या है?", opts: ["शेर", "बाघ", "हाथी", "गाय"], ans: 1, exp: "बाघ (Bengal Tiger) भारत का राष्ट्रीय पशु है।" },
+    { q: "माउंट एवरेस्ट किस देश में है?", opts: ["भारत", "तिब्बत/नेपाल", "चीन", "भूटान"], ans: 1, exp: "माउंट एवरेस्ट नेपाल और तिब्बत (चीन) की सीमा पर स्थित है।" },
+    { q: "पंचायती राज व्यवस्था किस संविधान संशोधन द्वारा लागू हुई?", opts: ["70वां", "73वां", "74वां", "76वां"], ans: 1, exp: "73वें संविधान संशोधन (1992) द्वारा पंचायती राज को संवैधानिक दर्जा मिला।" },
+    { q: "भारत का सर्वोच्च न्यायालय कहाँ स्थित है?", opts: ["मुंबई", "नई दिल्ली", "कोलकाता", "चेन्नई"], ans: 1, exp: "भारत का सर्वोच्च न्यायालय नई दिल्ली में स्थित है।" },
+    { q: "किस ग्रह को लाल ग्रह कहा जाता है?", opts: ["बृहस्पति", "मंगल", "शनि", "शुक्र"], ans: 1, exp: "मंगल ग्रह की सतह पर आयरन ऑक्साइड (जंग) के कारण यह लाल दिखता है।" },
+    { q: "भारतीय रिजर्व बैंक की स्थापना कब हुई?", opts: ["1935", "1947", "1950", "1955"], ans: 0, exp: "RBI की स्थापना 1 अप्रैल 1935 को हुई।" },
+    { q: "भारत का राष्ट्रीय गान किसने लिखा?", opts: ["बंकिम चंद्र", "रवींद्रनाथ टैगोर", "सरोजिनी नायडू", "सुभाष चंद्र बोस"], ans: 1, exp: "जन गण मन रवींद्रनाथ टैगोर द्वारा रचित है।" },
+    { q: "विश्व की सबसे लंबी नदी कौन सी है?", opts: ["अमेज़न", "नील", "गंगा", "यांग्त्ज़ी"], ans: 1, exp: "नील नदी (6,650 km) विश्व की सबसे लंबी नदी है।" },
+    { q: "भारत के प्रधानमंत्री की नियुक्ति कौन करता है?", opts: ["लोकसभा अध्यक्ष", "राष्ट्रपति", "उपराष्ट्रपति", "सर्वोच्च न्यायालय"], ans: 1, exp: "राष्ट्रपति प्रधानमंत्री की नियुक्ति करते हैं।" },
+    { q: "ओलंपिक खेल कितने वर्षों में एक बार होते हैं?", opts: ["2", "3", "4", "5"], ans: 2, exp: "ओलंपिक खेल प्रत्येक 4 वर्षों में आयोजित होते हैं।" },
+    { q: "जीएसटी कब लागू हुई?", opts: ["1 अप्रैल 2017", "1 जुलाई 2017", "1 जनवरी 2018", "26 जनवरी 2017"], ans: 1, exp: "GST (वस्तु एवं सेवा कर) 1 जुलाई 2017 को लागू हुई।" },
+    { q: "भारत में हरित क्रांति किस दशक में हुई?", opts: ["1950 के दशक", "1960 के दशक", "1970 के दशक", "1980 के दशक"], ans: 1, exp: "1960 के दशक में डॉ. एम.एस. स्वामीनाथन के नेतृत्व में हरित क्रांति हुई।" },
+    { q: "भारत का सबसे बड़ा राज्य (क्षेत्रफल) कौन सा है?", opts: ["उत्तर प्रदेश", "राजस्थान", "मध्यप्रदेश", "महाराष्ट्र"], ans: 1, exp: "राजस्थान क्षेत्रफल में भारत का सबसे बड़ा राज्य है।" },
+    { q: "संसद के कितने सदन हैं?", opts: ["1", "2", "3", "4"], ans: 1, exp: "भारतीय संसद के दो सदन हैं - लोकसभा (निम्न सदन) और राज्यसभा (उच्च सदन)।" },
+    { q: "विश्व स्वास्थ्य संगठन (WHO) का मुख्यालय कहाँ है?", opts: ["न्यूयॉर्क", "जिनेवा", "पेरिस", "लंदन"], ans: 1, exp: "WHO का मुख्यालय जिनेवा, स्विट्ज़रलैंड में है।" },
+    { q: "भारतीय संविधान का अनुच्छेद 370 किस राज्य से संबंधित था?", opts: ["हिमाचल प्रदेश", "जम्मू-कश्मीर", "उत्तराखंड", "पंजाब"], ans: 1, exp: "अनुच्छेद 370 जम्मू-कश्मीर को विशेष दर्जा देता था, जिसे 2019 में हटाया गया।" },
+    { q: "भारत में मतदान की न्यूनतम आयु क्या है?", opts: ["16 वर्ष", "18 वर्ष", "21 वर्ष", "25 वर्ष"], ans: 1, exp: "61वें संविधान संशोधन (1988) के बाद मतदान आयु 21 से घटाकर 18 वर्ष की गई।" },
+    { q: "प्रकाश की गति कितनी है?", opts: ["3×10⁸ m/s", "3×10⁶ m/s", "3×10⁷ m/s", "3×10⁹ m/s"], ans: 0, exp: "प्रकाश की गति लगभग 3×10⁸ मीटर प्रति सेकंड (3 लाख km/s) है।" },
+    { q: "भारत का पहला अंतरिक्ष यात्री कौन था?", opts: ["एपीजे अब्दुल कलाम", "राकेश शर्मा", "विक्रम साराभाई", "सतीश धवन"], ans: 1, exp: "राकेश शर्मा 1984 में सोवियत अंतरिक्ष यान में अंतरिक्ष जाने वाले पहले भारतीय थे।" },
+    { q: "भारत के किस राज्य में सबसे अधिक जिले हैं?", opts: ["उत्तर प्रदेश", "राजस्थान", "मध्यप्रदेश", "बिहार"], ans: 0, exp: "उत्तर प्रदेश में सबसे अधिक 75 जिले हैं।" },
+    { q: "मानव शरीर में हड्डियों की संख्या कितनी होती है?", opts: ["200", "206", "210", "215"], ans: 1, exp: "एक वयस्क मानव के शरीर में 206 हड्डियाँ होती हैं।" },
+    { q: "भारत का राष्ट्रीय खेल कौन सा है?", opts: ["क्रिकेट", "हॉकी", "कबड्डी", "फुटबॉल"], ans: 1, exp: "हॉकी भारत का राष्ट्रीय खेल है।" },
+    { q: "भारत में पहली रेलगाड़ी कब चली?", opts: ["1852", "1853", "1854", "1855"], ans: 1, exp: "भारत में पहली रेल 16 अप्रैल 1853 को मुंबई से ठाणे के बीच चली।" },
+    { q: "विश्व की सबसे ऊंची इमारत कौन सी है?", opts: ["एम्पायर स्टेट बिल्डिंग", "बुर्ज खलीफा", "ताइपे 101", "शंघाई टॉवर"], ans: 1, exp: "बुर्ज खलीफा (828 मीटर), दुबई, विश्व की सबसे ऊंची इमारत है।" },
+    { q: "भारत का पहला परमाणु परीक्षण कब हुआ?", opts: ["1972", "1974", "1978", "1980"], ans: 1, exp: "भारत का पहला परमाणु परीक्षण 'स्माइलिंग बुद्धा' 18 मई 1974 को पोखरण में हुआ।" },
+    { q: "इंटरनेट का आविष्कार किसने किया?", opts: ["टिम बर्नर्स ली", "बिल गेट्स", "विंटन सर्फ और बॉब कान", "मार्क जुकरबर्ग"], ans: 2, exp: "विंटन सर्फ और बॉब कान को इंटरनेट प्रोटोकॉल (TCP/IP) के आविष्कारक माना जाता है।" },
+    { q: "भारतीय मुद्रा रुपये का प्रतीक चिह्न (₹) किसने डिजाइन किया?", opts: ["डी. उदय कुमार", "रवि शंकर", "अनिल कुमार", "देवेंद्र कुमार"], ans: 0, exp: "₹ चिह्न IIT बॉम्बे के D. Uday Kumar ने डिजाइन किया।" },
+    { q: "मानव शरीर का सबसे बड़ा अंग कौन सा है?", opts: ["हृदय", "यकृत (लीवर)", "त्वचा", "फेफड़े"], ans: 2, exp: "त्वचा (Skin) मानव शरीर का सबसे बड़ा अंग है।" },
+    { q: "विश्व की सबसे बड़ी अर्थव्यवस्था (2024) कौन सी है?", opts: ["चीन", "अमेरिका", "भारत", "जर्मनी"], ans: 1, exp: "अमेरिका विश्व की सबसे बड़ी अर्थव्यवस्था है (GDP के अनुसार)।" },
+    { q: "भारत के नियंत्रक एवं महालेखा परीक्षक (CAG) की नियुक्ति कौन करता है?", opts: ["प्रधानमंत्री", "राष्ट्रपति", "संसद", "वित्त मंत्री"], ans: 1, exp: "CAG की नियुक्ति राष्ट्रपति द्वारा की जाती है।" },
+    { q: "बोलीविया की राजधानी क्या है?", opts: ["ब्यूनस आयर्स", "सुक्रे/लापाज", "लीमा", "बोगोटा"], ans: 1, exp: "बोलीविया की दो राजधानियाँ हैं - सुक्रे (संवैधानिक) और लापाज (प्रशासनिक)।" },
+    { q: "पृथ्वी का एकमात्र प्राकृतिक उपग्रह कौन सा है?", opts: ["मंगल", "चंद्रमा", "शुक्र", "टाइटन"], ans: 1, exp: "चंद्रमा पृथ्वी का एकमात्र प्राकृतिक उपग्रह है।" },
+    { q: "भारत में पहला आम चुनाव कब हुआ?", opts: ["1950-51", "1951-52", "1952-53", "1953-54"], ans: 1, exp: "भारत में पहला आम चुनाव 1951-52 में हुआ था।" },
+    { q: "DNA का पूरा नाम क्या है?", opts: ["Deoxyribonucleic Acid", "Diribonucleic Acid", "Deoxyribose Nucleic Acid", "Direct Nucleic Acid"], ans: 0, exp: "DNA = Deoxyribonucleic Acid — यह आनुवंशिक जानकारी का वाहक है।" },
+    { q: "भारत का सर्वोच्च नागरिक सम्मान कौन सा है?", opts: ["पद्म विभूषण", "भारत रत्न", "अर्जुन पुरस्कार", "पद्म श्री"], ans: 1, exp: "भारत रत्न भारत का सर्वोच्च नागरिक सम्मान है।" },
+    { q: "हाइड्रोजन बम का आविष्कार किसने किया?", opts: ["ओपेनहाइमर", "एडवर्ड टेलर", "आइंस्टाइन", "फर्मी"], ans: 1, exp: "एडवर्ड टेलर को हाइड्रोजन बम का जनक माना जाता है।" },
+    { q: "भारत में राष्ट्रीय आपातकाल की घोषणा किस अनुच्छेद के तहत होती है?", opts: ["अनुच्छेद 352", "अनुच्छेद 356", "अनुच्छेद 360", "अनुच्छेद 370"], ans: 0, exp: "अनुच्छेद 352 राष्ट्रीय आपातकाल से संबंधित है।" },
+    { q: "विश्व पर्यावरण दिवस कब मनाया जाता है?", opts: ["5 जून", "22 अप्रैल", "16 सितंबर", "21 मार्च"], ans: 0, exp: "विश्व पर्यावरण दिवस 5 जून को मनाया जाता है।" },
+    { q: "चंद्रयान-3 किस वर्ष चंद्रमा पर उतरा?", opts: ["2022", "2023", "2024", "2025"], ans: 1, exp: "चंद्रयान-3 ने 23 अगस्त 2023 को चंद्रमा के दक्षिणी ध्रुव पर सफल लैंडिंग की।" },
+    { q: "भारत के किस राज्य में सबसे अधिक वन क्षेत्र है?", opts: ["उत्तराखंड", "मध्यप्रदेश", "अरुणाचल प्रदेश", "छत्तीसगढ़"], ans: 1, exp: "मध्यप्रदेश में सबसे अधिक वन क्षेत्र है।" },
+    { q: "भारतीय संविधान का 'मैग्ना कार्टा' किसे कहा जाता है?", opts: ["अनुच्छेद 12-35", "अनुच्छेद 32", "अनुच्छेद 21", "अनुच्छेद 14"], ans: 0, exp: "मौलिक अधिकार (अनुच्छेद 12-35) को भारतीय संविधान का मैग्ना कार्टा कहते हैं।" },
+  ],
+  cg: [
+    { q: "छत्तीसगढ़ राज्य की स्थापना कब हुई?", opts: ["1 नवंबर 2000", "1 नवंबर 2001", "26 जनवरी 2000", "15 अगस्त 2000"], ans: 0, exp: "छत्तीसगढ़ राज्य की स्थापना 1 नवंबर 2000 को मध्यप्रदेश से विभाजन के बाद हुई।" },
+    { q: "छत्तीसगढ़ की राजधानी कहाँ है?", opts: ["बिलासपुर", "रायपुर", "दुर्ग", "जगदलपुर"], ans: 1, exp: "रायपुर छत्तीसगढ़ की राजधानी है।" },
+    { q: "छत्तीसगढ़ में कुल कितने जिले हैं (2024)?", opts: ["28", "30", "33", "36"], ans: 3, exp: "छत्तीसगढ़ में वर्तमान में 36 जिले हैं।" },
+    { q: "छत्तीसगढ़ का राज्य वृक्ष कौन सा है?", opts: ["बरगद", "साल", "आम", "पीपल"], ans: 1, exp: "साल (Shorea robusta) छत्तीसगढ़ का राज्य वृक्ष है।" },
+    { q: "छत्तीसगढ़ का राज्य पशु कौन सा है?", opts: ["बाघ", "वन भैंसा", "हाथी", "चीतल"], ans: 1, exp: "वन भैंसा (Wild Buffalo) छत्तीसगढ़ का राज्य पशु है।" },
+    { q: "छत्तीसगढ़ का राज्य पक्षी कौन सा है?", opts: ["मोर", "पहाड़ी मैना", "तोता", "बाज"], ans: 1, exp: "पहाड़ी मैना (Hill Myna) छत्तीसगढ़ का राज्य पक्षी है।" },
+    { q: "छत्तीसगढ़ की प्रमुख नदी कौन सी है?", opts: ["नर्मदा", "महानदी", "गोदावरी", "तापी"], ans: 1, exp: "महानदी छत्तीसगढ़ की सबसे प्रमुख नदी है।" },
+    { q: "बस्तर दशहरा किस जिले में मनाया जाता है?", opts: ["रायपुर", "बस्तर/जगदलपुर", "सरगुजा", "कोरबा"], ans: 1, exp: "विश्व प्रसिद्ध बस्तर दशहरा जगदलपुर में 75 दिनों तक मनाया जाता है।" },
+    { q: "छत्तीसगढ़ में किस खनिज का सर्वाधिक उत्पादन होता है?", opts: ["सोना", "कोयला", "हीरा", "बॉक्साइट"], ans: 1, exp: "छत्तीसगढ़ कोयला उत्पादन में अग्रणी राज्यों में से एक है।" },
+    { q: "छत्तीसगढ़ के प्रथम मुख्यमंत्री कौन थे?", opts: ["रमन सिंह", "अजीत जोगी", "भूपेश बघेल", "मोतीलाल वोरा"], ans: 1, exp: "अजीत जोगी छत्तीसगढ़ के प्रथम मुख्यमंत्री थे।" },
+    { q: "इंदिरा गांधी कृषि विश्वविद्यालय कहाँ स्थित है?", opts: ["बिलासपुर", "रायपुर", "दुर्ग", "राजनांदगांव"], ans: 1, exp: "इंदिरा गांधी कृषि विश्वविद्यालय रायपुर में स्थित है।" },
+    { q: "सिरपुर किस जिले में है?", opts: ["रायपुर", "महासमुंद", "धमतरी", "बालोद"], ans: 1, exp: "सिरपुर (ऐतिहासिक स्थल) महासमुंद जिले में स्थित है।" },
+    { q: "छत्तीसगढ़ का लौह अयस्क का प्रमुख क्षेत्र कौन सा है?", opts: ["कोरबा", "बैलाडीला", "बिलासपुर", "रायगढ़"], ans: 1, exp: "बैलाडीला (दंतेवाड़ा) में उच्च गुणवत्ता का लौह अयस्क पाया जाता है।" },
+    { q: "छत्तीसगढ़ राज्य की जनसंख्या (2011 जनगणना) लगभग कितनी है?", opts: ["2 करोड़", "2.5 करोड़", "3 करोड़", "2.55 करोड़"], ans: 3, exp: "2011 जनगणना के अनुसार छत्तीसगढ़ की जनसंख्या लगभग 2.55 करोड़ है।" },
+    { q: "भोरमदेव मंदिर किस जिले में है?", opts: ["रायपुर", "कवर्धा (कबीरधाम)", "दुर्ग", "राजनांदगांव"], ans: 1, exp: "भोरमदेव मंदिर कवर्धा (कबीरधाम) जिले में है — इसे 'छत्तीसगढ़ का खजुराहो' कहते हैं।" },
+    { q: "छत्तीसगढ़ का कौन सा जलप्रपात सबसे ऊंचा है?", opts: ["तीरथगढ़", "चित्रकोट", "अमृतधारा", "रानीदहरा"], ans: 0, exp: "तीरथगढ़ ज
